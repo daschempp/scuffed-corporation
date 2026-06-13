@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data      # persists Let's Encrypt certificates across restarts
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

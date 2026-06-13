@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scuffed OS Privacy Policy — Scuffed Corporation</title>
+<meta name="description" content="The Scuffed OS privacy policy: what data the app stores, which service providers process it, and how deletion works.">
+<link rel="canonical" href="https://scuffedcorporation.com/privacy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scuffed Corporation">
+<meta property="og:title" content="Scuffed OS Privacy Policy — Scuffed Corporation">
+<meta property="og:description" content="The Scuffed OS privacy policy: what data the app stores, which service providers process it, and how deletion works.">
+<meta property="og:url" content="https://scuffedcorporation.com/privacy/">
+<meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="frame">
+  <header>
+    <p class="topline">
+      <span>scuffedcorporation.com</span>
+      <span>no trackers &middot; no cookies &middot; no javascript</span>
+    </p>
+    <nav class="site-nav" aria-label="Main">
+      <a class="brand" href="/">Scuffed&nbsp;Corporation</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/privacy/" aria-current="page">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- 00 / policy intro -->
+    <section class="sec" aria-labelledby="policy-title">
+      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective june 10, 2026</span></p>
+      <div class="sec-main">
+        <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
+        <p><strong>Effective date:</strong> June 10, 2026</p>
+        <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
+        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP.</p>
+      </div>
+    </section>
+
+    <!-- 01 / information we collect -->
+    <section class="sec" aria-labelledby="information-we-collect">
+      <p class="sec-label"><span>01 &mdash; information we collect</span><span>entered, derived, or synced</span></p>
+      <div class="sec-main">
+        <h2 id="information-we-collect">1. Information we collect</h2>
+        <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
+        <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. See <a href="#whoop-data">Section 4</a> for how WHOOP data is handled.</p>
+        <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
+      </div>
+    </section>
+
+    <!-- 02 / how we use information -->
+    <section class="sec" aria-labelledby="how-we-use-information">
+      <p class="sec-label"><span>02 &mdash; how we use information</span><span>features only</span></p>
+      <div class="sec-main">
+        <h2 id="how-we-use-information">2. How we use information</h2>
+        <p>Data is used solely to provide the app&rsquo;s features:</p>
+        <ul>
+          <li>Displaying and managing your tasks, calendar, habits, nutrition, and health data.</li>
+          <li>Powering the AI assistant &mdash; answering questions, taking actions you request, and personalizing responses using stored memories.</li>
+          <li>Generating local reminders and notifications on your device.</li>
+        </ul>
+        <p>We do not sell personal data, share it for advertising or marketing, or use it for any purpose beyond operating the app.</p>
+      </div>
+    </section>
+
+    <!-- 03 / service providers -->
+    <section class="sec" aria-labelledby="service-providers">
+      <p class="sec-label"><span>03 &mdash; service providers</span><span>named, with reasons</span></p>
+      <div class="sec-main">
+        <h2 id="service-providers">3. Service providers</h2>
+        <p>Scuffed OS sends data to a small set of service providers, each for a specific function:</p>
+        <div class="table-scroll" role="region" tabindex="0" aria-labelledby="service-providers-table">
+          <table class="facts facts--auto">
+            <caption class="visually-hidden" id="service-providers-table">Service providers, their purpose, and what is shared with each</caption>
+            <thead>
+              <tr><th scope="col">Provider</th><th scope="col">Purpose</th><th scope="col">What is shared</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><strong>Anthropic</strong> (Claude API)</th>
+                <td>Powers the AI assistant and memory extraction</td>
+                <td>Your messages to the assistant, conversation history, and data the assistant reads from your stored domains (tasks, calendar, health data, etc.) in order to respond</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>OpenAI</strong></th>
+                <td>Text embeddings for memory search (embeddings only &mdash; the assistant itself never calls OpenAI)</td>
+                <td>The text of stored memories</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Supabase</strong></th>
+                <td>Managed Postgres database hosting</td>
+                <td>Structured app data: tasks, events, habits, nutrition logs, conversations, memories and their embeddings, and synced WHOOP data</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>WHOOP</strong></th>
+                <td>Health data source (only if you connect it)</td>
+                <td>OAuth authorization; Scuffed OS receives data from WHOOP, not the reverse</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>USDA FoodData Central</strong></th>
+                <td>Food nutrition lookup</td>
+                <td>Only the food search text you enter (e.g., &ldquo;chicken wrap&rdquo;)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Anthropic and OpenAI process API data under their published API data-usage policies, which (as of the effective date) state that API inputs and outputs are not used to train their models.</p>
+        <p>If you use voice dictation, audio is processed by your browser&rsquo;s built-in speech recognition, which may involve the browser vendor&rsquo;s speech service under that vendor&rsquo;s privacy policy. Only the resulting text transcript reaches Scuffed OS.</p>
+        <p>File attachments and the memory change-history database are stored locally on the machine running the app, not with any cloud provider. Notifications are generated locally on-device.</p>
+      </div>
+    </section>
+
+    <!-- 04 / whoop data -->
+    <section class="sec" aria-labelledby="whoop-data">
+      <p class="sec-label"><span>04 &mdash; whoop data</span><span>consent first</span></p>
+      <div class="sec-main">
+        <h2 id="whoop-data">4. WHOOP data</h2>
+        <p>If you choose to connect WHOOP:</p>
+        <ul>
+          <li>Data is retrieved only after you explicitly authorize Scuffed OS through WHOOP&rsquo;s OAuth consent flow, and only for the scopes you grant.</li>
+          <li>WHOOP data is used solely to display your health metrics within Scuffed OS and to let the assistant answer your questions about them. It is never sold, never shared with third parties for their own purposes, and never used for advertising.</li>
+          <li>WHOOP data may be included in assistant context sent to Anthropic when you ask the assistant about your health data (<a href="#service-providers">Section 3</a>); it is not sent to any other provider.</li>
+          <li>You can revoke Scuffed OS&rsquo;s access at any time from your WHOOP account settings or by disconnecting WHOOP within Scuffed OS. Upon disconnection or request, stored WHOOP data and access tokens are deleted within 30 days.</li>
+        </ul>
+        <p>Scuffed OS is an independent application and is not affiliated with, endorsed by, or sponsored by WHOOP.</p>
+      </div>
+    </section>
+
+    <!-- 05 / data storage and security -->
+    <section class="sec" aria-labelledby="data-storage-and-security">
+      <p class="sec-label"><span>05 &mdash; data storage and security</span><span>small surface, on purpose</span></p>
+      <div class="sec-main">
+        <h2 id="data-storage-and-security">5. Data storage and security</h2>
+        <ul>
+          <li>App data is stored in a Postgres database hosted by Supabase; attachments and the memory history file are stored on the operator&rsquo;s machine.</li>
+          <li>Data is encrypted in transit (TLS) between the app, the database, and all service providers.</li>
+          <li>API credentials and OAuth tokens are stored in server-side configuration, never in the client.</li>
+          <li>Access to the database and the machine running the app is limited to the operator.</li>
+        </ul>
+        <p>No system is perfectly secure, but as a single-user, self-hosted application, Scuffed OS&rsquo;s exposure surface is intentionally small.</p>
+      </div>
+    </section>
+
+    <!-- 06 / data retention and deletion -->
+    <section class="sec" aria-labelledby="data-retention-and-deletion">
+      <p class="sec-label"><span>06 &mdash; data retention and deletion</span><span>retained until you delete it</span></p>
+      <div class="sec-main">
+        <h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
+        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
+      </div>
+    </section>
+
+    <!-- 07 / your rights and choices -->
+    <section class="sec" aria-labelledby="your-rights-and-choices">
+      <p class="sec-label"><span>07 &mdash; your rights and choices</span><span>access &middot; correction &middot; export &middot; deletion</span></p>
+      <div class="sec-main">
+        <h2 id="your-rights-and-choices">7. Your rights and choices</h2>
+        <p>You can access, correct, export, or delete your data at any time &mdash; in-app, via the assistant, or by direct database access. You can decline to connect WHOOP (the rest of the app works without it), disable voice dictation by simply not using the microphone, and disconnect any integration at any time.</p>
+      </div>
+    </section>
+
+    <!-- 08 / children -->
+    <section class="sec" aria-labelledby="children">
+      <p class="sec-label"><span>08 &mdash; children</span><span>not for children</span></p>
+      <div class="sec-main">
+        <h2 id="children">8. Children</h2>
+        <p>Scuffed OS is not directed at children and is not intended for use by anyone under 13 (or the minimum age required in your jurisdiction).</p>
+      </div>
+    </section>
+
+    <!-- 09 / changes to this policy -->
+    <section class="sec" aria-labelledby="changes-to-this-policy">
+      <p class="sec-label"><span>09 &mdash; changes to this policy</span><span>dated, not silent</span></p>
+      <div class="sec-main">
+        <h2 id="changes-to-this-policy">9. Changes to this policy</h2>
+        <p>If the app&rsquo;s data practices change &mdash; for example, when new integrations are added &mdash; this policy will be updated and the effective date revised. The current version is always available at the URL where you are reading it.</p>
+      </div>
+    </section>
+
+    <!-- 10 / contact -->
+    <section class="sec" aria-labelledby="contact">
+      <p class="sec-label"><span>10 &mdash; contact</span><span>a human answers</span></p>
+      <div class="sec-main">
+        <h2 id="contact">10. Contact</h2>
+        <p>Questions, or a data access/deletion request? Email <strong><a href="mailto:contact@scuffedcorporation.com">contact@scuffedcorporation.com</a></strong>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>
+      <h2>Contact</h2>
+      <p><a href="mailto:contact@scuffedcorporation.com">contact@scuffedcorporation.com</a></p>
+      <p>A human reads it. The same human who wrote this page.</p>
+    </div>
+    <div class="colophon">
+      <h2>Colophon</h2>
+      <p>This site is handwritten HTML and CSS. One stylesheet, system fonts, no frameworks, no trackers, no cookies, no JavaScript. It loads fast because there is nothing to load.</p>
+      <p>Read the <a href="/privacy/">privacy policy</a> &mdash; this site collects nothing; the policy covers what the Scuffed OS app stores.</p>
+    </div>
+    <p class="copyright">
+      <span>&copy; 2026 Scuffed Corporation</span>
+      <span>status: shipping &middot; 1 engineer &middot; 100% real software</span>
+      <span>rough around the edges &middot; solid through the middle</span>
+    </p>
+  </footer>
+</div>
+
+</body>
+</html>

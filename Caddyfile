@@ -1,0 +1,16 @@
+# Redirect www to the bare apex domain.
+www.scuffedcorporation.com {
+	redir https://scuffedcorporation.com{uri} permanent
+}
+
+scuffedcorporation.com {
+	root * /srv
+	encode gzip zstd
+	file_server
+
+	# Serve the handwritten 404 page for any not-found path.
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}

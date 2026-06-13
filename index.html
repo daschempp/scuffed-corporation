@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scuffed Corporation</title>
+<meta name="description" content="Scuffed Corporation is company operated by Dylan Schempp and houses his software projects: self-hosted personal software with real engineering underneath the self-deprecating name.">
+<link rel="canonical" href="https://scuffedcorporation.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scuffed Corporation">
+<meta property="og:title" content="Scuffed Corporation">
+<meta property="og:description" content="The company operated by Dylan Schempp and houses his software projects: self-hosted tools and an honest roadmap.">
+<meta property="og:url" content="https://scuffedcorporation.com/">
+<meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="frame">
+  <header>
+    <p class="topline">
+      <span>scuffedcorporation.com</span>
+      <span>no trackers &middot; no cookies &middot; no javascript</span>
+    </p>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- 00 / hero -->
+    <section class="sec hero" aria-labelledby="hero-title">
+      <p class="sec-label"><span>00 &mdash;</span></p>
+      <div class="sec-main">
+        <h1 id="hero-title">
+          <span class="line"><span class="squig">Scuffed<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 12 C 35 4, 70 17, 105 10 S 175 15, 210 8 S 270 14, 297 7" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/></svg></span></span>
+          <span class="line">Corporation</span>
+        </h1>
+        <p class="deck">The name is a joke. The software isn&rsquo;t.</p>
+        <ul class="chips" aria-label="In short">
+          <li>one engineer</li>
+          <li>self-hosted</li>
+          <li>your data stays yours</li>
+        </ul>
+        <p class="lede">Scuffed Corporation is the home for software built by Dylan Schempp: self-hosted tools and an honest roadmap. We sanded the polish off the marketing and left all of it on the code.</p>
+      </div>
+      <aside class="note" aria-label="Margin note">
+        <strong>scuff</strong> /sk&#652;f/, <em>v.</em> &mdash; to scrape or wear the surface of something. The surface. Not the structure.
+      </aside>
+    </section>
+
+    <!-- 01 / what we do -->
+    <section class="sec" aria-labelledby="what-title">
+      <p class="sec-label"><span>01 &mdash; what we do</span></p>
+      <div class="sec-main">
+        <h2 id="what-title">We built it, and we use it</h2>
+        <p>Everything here is self-hosted: it runs on hardware we own, stores data in a database we control, and never reports back to a growth team that doesn&rsquo;t exist. The scope is narrow on purpose &mdash; one thing, done all the way, beats ten things done up to the launch.</p>
+        <p>There&rsquo;s no roadmap written for investors and no feature waiting on a funding round. Everything ships to production standards, because the first and most demanding user is the person who wrote it &mdash; and he&rsquo;s right here.</p>
+        <table class="facts">
+          <caption class="visually-hidden">Company facts</caption>
+          <tbody>
+            <tr><th scope="row">Founded by</th><td><strong>Dylan Schempp</strong> (also: the entire org chart)</td></tr>
+            <tr><th scope="row">Headcount</th><td><strong>1</strong> &mdash; engineering, design, ops, and legal share a chair</td></tr>
+            <tr><th scope="row">Meetings per week</th><td><strong>0</strong></td></tr>
+            <tr><th scope="row">Stock photos of teams pointing at whiteboards</th><td><strong>0</strong></td></tr>
+            <tr><th scope="row">Stack philosophy</th><td><strong>Boring on purpose</strong> &mdash; FastAPI, Postgres, typed schemas, migrations, tests. The product is the exciting part.</td></tr>
+            <tr><th scope="row">Products in daily production</th><td><strong>1</strong> &mdash; <a href="/projects/">Scuffed OS</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="note" aria-label="Margin note">
+        Every claim on this page is true, which is a strange flex for a corporate website. Here we are.
+      </aside>
+    </section>
+
+    <!-- 02 / flagship -->
+    <section class="sec" aria-labelledby="os-title">
+      <p class="sec-label"><span>02 &mdash; flagship</span><span>status: in active development</span></p>
+      <div class="sec-main">
+        <h2 id="os-title">Scuffed OS</h2>
+        <p class="sub">A self-hosted personal operating system: one Claude-powered assistant with read-and-write tools over your entire life.</p>
+        <p>Tasks with reminders, recurrence, and file attachments. Calendar. Habits. Nutrition with USDA food-database lookup. A persistent second-brain memory that actually remembers &mdash; across conversations, weeks, and topics. Talk to it by text or voice; reminders fire as native notifications, not as guilt in an inbox.</p>
+
+        <div class="term" role="group" aria-label="A sample exchange with the Scuffed OS assistant">
+          <p><span class="term-prompt">you &rsaquo;</span> remind me to stretch on weekdays at 8am</p>
+          <p><span class="term-ok">&#10003;</span> Reminder set &mdash; &ldquo;Stretch&rdquo; &middot; weekdays &middot; 8:00</p>
+          <p><span class="term-prompt">you &rsaquo;</span> how did I sleep?</p>
+          <p><span class="term-dev">&#10227;</span> WHOOP sync is in development. Ask again soon.</p>
+        </div>
+
+        <ul class="modules" aria-label="Scuffed OS modules and status">
+          <li><span class="mod-name">Assistant</span><span class="mod-desc">Claude tool loop, streaming conversations</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Tasks</span><span class="mod-desc">reminders &middot; recurrence &middot; attachments</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Calendar</span><span class="mod-desc">events the assistant can read and write</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Habits</span><span class="mod-desc">tracking without the streak shame</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Nutrition</span><span class="mod-desc">USDA food-database lookup</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Memory</span><span class="mod-desc">persistent second brain (Mem0 + pgvector)</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Voice</span><span class="mod-desc">capture, transcribe, act</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">WHOOP sync</span><span class="mod-desc">recovery &middot; sleep &middot; strain</span><span class="tag tag-dev">in dev</span></li>
+          <li><span class="mod-name">Finance</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
+          <li><span class="mod-name">Email triage</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
+          <li><span class="mod-name">Personal CRM</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
+          <li aria-hidden="true"><span class="mod-desc">// this cell intentionally left scuffed</span></li>
+        </ul>
+        <p class="legend">&ldquo;Planned&rdquo; means planned &mdash; not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
+
+        <dl class="meta">
+          <div><dt>Stack</dt><dd>FastAPI &middot; PostgreSQL + pgvector &middot; React &middot; Claude &middot; Mem0</dd></div>
+          <div><dt>Status</dt><dd>In active development. Personal, private deployment &mdash; there is nothing to sign up for, and that&rsquo;s the point. The roadmap is trustworthy for one reason: the person building it uses it every day.</dd></div>
+          <div><dt>Next up</dt><dd>WHOOP fitness sync &mdash; recovery, sleep, and strain in the same brain as everything else.</dd></div>
+        </dl>
+
+        <a class="btn" href="/projects/">Full project notes &rarr;</a>
+      </div>
+      <aside class="note" aria-label="Margin note">
+        <strong>n.b.</strong> &mdash; &ldquo;OS&rdquo; as in <em>operating system for a person</em>, not a kernel. We&rsquo;re scuffed, not reckless.
+      </aside>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>
+      <h2>Contact</h2>
+      <p><a href="mailto:contact@scuffedcorporation.com">contact@scuffedcorporation.com</a></p>
+      <p>A human reads it. The same human who wrote this page.</p>
+    </div>
+    <div class="colophon">
+      <p>This site is handwritten HTML and CSS. One stylesheet, system fonts, no frameworks, no trackers, no cookies, no JavaScript. It loads fast because there is nothing to load.</p>
+    </div>
+    <p class="copyright">
+      <span>&copy; 2026 Scuffed Corporation</span>
+      <span>status: shipping &middot; 1 engineer &middot; 100% real software</span>
+      <span>Rough around the edges, solid through the middle</span>
+    </p>
+  </footer>
+</div>
+
+</body>
+</html>

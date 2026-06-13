@@ -1,0 +1,368 @@
+/* ============================================================
+   Scuffed Corporation — styles.css
+   The entire design system in one file. No build step, no
+   frameworks, no JavaScript, system fonts only. Served as-is.
+   ------------------------------------------------------------
+   00  tokens
+   01  base
+   02  skip link + utilities
+   03  page frame
+   04  topline + nav
+   05  sections + margin notes
+   06  display type + hero
+   07  prose (long-form pages)
+   08  tables
+   09  status grid + tags
+   10  meta definition list
+   11  terminal blocks
+   12  button
+   13  footer
+   ============================================================ */
+
+/* ---------- 00 tokens ---------- */
+:root {
+  --paper: #f5f2ea;   /* warm paper background */
+  --ink: #1a1814;     /* near-black text */
+  --hair: #1a1814;    /* hairline rules — full ink in light mode, on purpose */
+  --muted: #5c564a;   /* secondary text */
+  --accent: #c2410c;  /* the one accent — AA-checked on paper */
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --pad: clamp(1rem, 4vw, 2.75rem); /* horizontal page padding */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #141312;
+    --ink: #ebe7df;
+    --hair: #57534a;  /* dimmed in dark to avoid glare */
+    --muted: #a39d90;
+    --accent: #ff7a50;
+  }
+}
+
+/* ---------- 01 base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+img, svg { max-width: 100%; height: auto; }
+::selection { background: var(--accent); color: var(--paper); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+/* email addresses are the longest unbreakable strings on the site; let them
+   break so the page reflows cleanly down to 320px (WCAG 1.4.10) */
+a[href^="mailto:"] { overflow-wrap: anywhere; }
+
+p { margin: 0 0 1.1rem; }
+
+/* ---------- 02 skip link + utilities ---------- */
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: .6rem 1rem; z-index: 10; text-decoration: none;
+}
+.skip:focus { left: var(--pad); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+.muted { color: var(--muted); }
+
+/* ---------- 03 page frame ---------- */
+.frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-inline: 1px solid var(--hair);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+/* ---------- 04 topline + nav ---------- */
+.topline {
+  display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; justify-content: space-between;
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted);
+  padding: .45rem var(--pad);
+  border-bottom: 1px solid var(--hair);
+  margin: 0;
+}
+.site-nav {
+  display: flex; flex-wrap: wrap; gap: .75rem 1.5rem;
+  align-items: baseline; justify-content: space-between;
+  padding: .9rem var(--pad);
+  border-bottom: 1px solid var(--hair);
+}
+.brand {
+  font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  text-decoration: none; font-size: .95rem;
+}
+.site-nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .35rem 1.4rem;
+  font-size: .85rem;
+}
+.site-nav li { margin: 0; }
+.site-nav a[aria-current="page"] {
+  background: var(--ink); color: var(--paper);
+  text-decoration: none; padding: .12em .5em;
+}
+
+/* ---------- 05 sections + margin notes ---------- */
+.sec {
+  border-bottom: 1px solid var(--hair);
+  padding: clamp(2.25rem, 6vw, 4rem) var(--pad);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem 3.5rem;
+  align-items: start;
+}
+.sec-main { max-width: 68ch; min-width: 0; }
+.sec-main > :last-child { margin-bottom: 0; }
+.sec-label {
+  grid-column: 1 / -1;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .15rem 1rem;
+  margin: 0 0 .5rem;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px dashed var(--hair);
+  padding-bottom: .5rem;
+}
+.sec-label span { white-space: nowrap; }
+.note {
+  font-size: .78rem;
+  line-height: 1.65;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding-left: .9rem;
+  max-width: 40ch;
+}
+.note strong { color: var(--ink); }
+@media (min-width: 980px) {
+  .sec { grid-template-columns: minmax(0, 68ch) minmax(200px, 1fr); }
+  .note { margin-top: .35rem; position: sticky; top: 1.5rem; justify-self: end; }
+}
+
+/* ---------- 06 display type + hero ---------- */
+.hero h1 {
+  margin: .5rem 0 1.25rem;
+  font-size: clamp(2.35rem, 8.5vw, 5.4rem);
+  line-height: .98;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  text-transform: uppercase;
+  word-break: normal;
+}
+.hero h1 .line { display: block; }
+
+/* interior-page h1 — smaller than the home display title */
+.page-title {
+  margin: .5rem 0 1.25rem;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* hand-drawn accent underline (inline SVG required, see index.html) */
+.squig { position: relative; display: inline-block; }
+.squig svg {
+  position: absolute; left: 0; bottom: -0.14em;
+  width: 100%; height: .14em; overflow: visible;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: .4rem 0 1rem;
+}
+h3 {
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 1.9rem 0 .65rem;
+}
+.sub { font-weight: 700; margin: 0 0 1rem; }
+
+.deck {
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+.chips {
+  margin: 0 0 1.4rem; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: .4rem .6rem;
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.chips li { border: 1px solid var(--hair); padding: .15em .6em; margin: 0; }
+.lede { margin: 0 0 1.1rem; }
+
+/* ---------- 07 prose (long-form pages) ---------- */
+/* :where() keeps specificity at zero so components (.chips, .modules)
+   override cleanly. Long-form content lives inside .sec-main. */
+:where(.sec-main) ul, :where(.sec-main) ol { margin: 0 0 1.1rem; padding-left: 1.35rem; }
+:where(.sec-main) li { margin: 0 0 .4rem; }
+:where(.sec-main) li::marker { color: var(--muted); }
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: .2rem 0 .2rem 1rem;
+  border-left: 3px solid var(--accent);
+  font-size: .95rem;
+}
+hr { border: 0; border-top: 1px dashed var(--hair); margin: 2rem 0; }
+code { border: 1px solid var(--hair); padding: .05em .35em; font-size: .9em; }
+pre code { border: 0; padding: 0; font-size: inherit; }
+
+/* prompt-line eyebrow — "~ ❯ whoami" device */
+.promptline { margin: 0 0 .85rem; font-size: .85rem; color: var(--muted); }
+.promptline b, .promptline .ps { color: var(--accent); font-weight: 700; }
+
+/* ---------- 08 tables ---------- */
+table.facts {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: .85rem;
+}
+.facts th, .facts td {
+  border: 1px solid var(--hair);
+  padding: .55rem .8rem;
+  text-align: left;
+  vertical-align: top;
+}
+@media (prefers-color-scheme: dark) {
+  /* data-table grids carry column structure; keep them above 3:1 non-text
+     contrast while decorative hairlines elsewhere stay dimmed */
+  .facts th, .facts td { border-color: #6b6559; }
+}
+.facts th { width: 46%; font-weight: 700; }
+.facts td { color: var(--muted); }
+.facts td strong { color: var(--ink); }
+.facts thead th {
+  width: auto;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted);
+}
+/* multi-column content tables (privacy policy etc.) — no fixed th width */
+.facts--auto th { width: auto; }
+/* wrap wide tables for small screens: <div class="table-scroll"><table …> */
+.table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+.table-scroll > table { margin: 0; }
+
+/* ---------- 09 status grid + tags ---------- */
+.modules {
+  list-style: none; margin: 1.75rem 0; padding: 1px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 1px;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+}
+.modules li {
+  background: var(--paper);
+  padding: .8rem .85rem .9rem;
+  margin: 0;
+  display: flex; flex-direction: column; gap: .3rem;
+  min-height: 7.25rem;
+}
+.mod-name { font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
+.mod-desc { font-size: .72rem; color: var(--muted); line-height: 1.5; }
+
+/* status badges — usable inside .modules or inline anywhere */
+.tag {
+  margin-top: auto; align-self: flex-start;
+  display: inline-block;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  padding: .12em .5em;
+  border: 1px solid var(--ink);
+}
+.tag-live { background: var(--ink); color: var(--paper); }
+.tag-dev  { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.tag-plan { border-style: dashed; border-color: var(--muted); color: var(--muted); }
+.legend { font-size: .72rem; color: var(--muted); margin: -0.75rem 0 1.75rem; }
+
+/* ---------- 10 meta definition list ---------- */
+dl.meta { margin: 0 0 2rem; font-size: .85rem; }
+.meta > div {
+  display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem;
+  padding: .55rem 0;
+  border-top: 1px dashed var(--hair);
+}
+.meta > div:last-child { border-bottom: 1px dashed var(--hair); }
+.meta dt { text-transform: uppercase; letter-spacing: .12em; font-size: .68rem; color: var(--muted); padding-top: .15em; }
+.meta dd { margin: 0; }
+@media (max-width: 480px) {
+  .meta > div { grid-template-columns: 1fr; gap: .15rem; }
+}
+
+/* ---------- 11 terminal blocks ---------- */
+/* transcript: <div class="term"><p>… ; readout: <pre class="term">…
+   overflow-x scrolls instead of clipping aligned columns at 380px */
+.term {
+  margin: 1.75rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--hair);
+  font-size: .8rem;
+  line-height: 1.8;
+  overflow-x: auto;
+}
+.term p { margin: 0; }
+pre.term { white-space: pre; line-height: 1.7; }
+.term-prompt { color: var(--muted); }
+.term-ok { font-weight: 700; }
+.term-dev { color: var(--accent); font-weight: 700; }
+.term-cmt { color: var(--muted); }
+
+/* ---------- 12 button ---------- */
+.btn {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: .7rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--accent);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.btn:hover { background: var(--ink); color: var(--paper); transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--accent); }
+.btn:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+
+/* ---------- 13 footer ---------- */
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 2rem var(--pad) 2.5rem;
+  font-size: .8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem 3rem;
+}
+@media (min-width: 760px) {
+  footer { grid-template-columns: 1fr 1fr; }
+}
+footer h2 { font-size: .7rem; letter-spacing: .16em; color: var(--muted); margin: 0 0 .6rem; }
+footer p { margin: 0 0 .5rem; }
+.colophon { color: var(--muted); }
+.copyright {
+  grid-column: 1 / -1;
+  border-top: 1px dashed var(--hair);
+  padding-top: 1rem;
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between;
+}

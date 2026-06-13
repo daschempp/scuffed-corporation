@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Scuffed Corporation mark: a square with one scuffed (clipped) corner,
+       patched in the accent color. Honest about the damage. -->
+  <style>
+    .bg  { fill: #1a1814; }
+    .fg  { fill: #f5f2ea; }
+    .acc { fill: #c2410c; }
+    @media (prefers-color-scheme: dark) {
+      .bg  { fill: #ebe7df; }
+      .fg  { fill: #141312; }
+      .acc { fill: #ff7a50; }
+    }
+  </style>
+  <path class="bg" d="M6 6 H58 V44 L44 58 H6 Z"/>
+  <path class="acc" d="M58 44 L58 58 L44 58 Z"/>
+  <text class="fg" x="31" y="45"
+        font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="36" font-weight="700" text-anchor="middle">S</text>
+</svg>
