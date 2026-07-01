@@ -48,7 +48,7 @@
         <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
         <p><strong>Effective date:</strong> June 10, 2026</p>
         <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
-        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP.</p>
+        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP and Gmail.</p>
       </div>
     </section>
 
@@ -59,7 +59,7 @@
         <h2 id="information-we-collect">1. Information we collect</h2>
         <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
         <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
-        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. See <a href="#whoop-data">Section 4</a> for how WHOOP data is handled.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages read-only via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (the <code>gmail.readonly</code> scope); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. See <a href="#whoop-data">Section 4</a> and <a href="#gmail-data">Section 4a</a> for how WHOOP and Gmail data are handled.</p>
         <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
       </div>
     </section>
@@ -94,8 +94,8 @@
             <tbody>
               <tr>
                 <th scope="row"><strong>Anthropic</strong> (Claude API)</th>
-                <td>Powers the AI assistant and memory extraction</td>
-                <td>Your messages to the assistant, conversation history, and data the assistant reads from your stored domains (tasks, calendar, health data, etc.) in order to respond</td>
+                <td>Powers the AI assistant, memory extraction, and email triage</td>
+                <td>Your messages to the assistant, conversation history, and data the assistant reads from your stored domains (tasks, calendar, health data, etc.) in order to respond. When you connect Gmail, each email&rsquo;s sender, subject, preview snippet, and a bounded body excerpt (~2&nbsp;KB) are sent to Anthropic to classify it and generate a short summary</td>
               </tr>
               <tr>
                 <th scope="row"><strong>OpenAI</strong></th>
@@ -105,12 +105,17 @@
               <tr>
                 <th scope="row"><strong>Supabase</strong></th>
                 <td>Managed Postgres database hosting</td>
-                <td>Structured app data: tasks, events, habits, nutrition logs, conversations, memories and their embeddings, and synced WHOOP data</td>
+                <td>Structured app data: tasks, events, habits, nutrition logs, conversations, memories and their embeddings, synced WHOOP data, and email metadata (sender, subject, snippet, and AI-derived category/summary &mdash; no message bodies)</td>
               </tr>
               <tr>
                 <th scope="row"><strong>WHOOP</strong></th>
                 <td>Health data source (only if you connect it)</td>
                 <td>OAuth authorization; Scuffed OS receives data from WHOOP, not the reverse</td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Google</strong> (Gmail)</th>
+                <td>Email source, read-only (only if you connect it)</td>
+                <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage &mdash; see <a href="#gmail-data">Section 4a</a></td>
               </tr>
               <tr>
                 <th scope="row"><strong>USDA FoodData Central</strong></th>
@@ -142,6 +147,23 @@
       </div>
     </section>
 
+    <!-- 04b / gmail data -->
+    <section class="sec" aria-labelledby="gmail-data">
+      <p class="sec-label"><span>04 &mdash; gmail data</span><span>read-only &middot; bodies not stored</span></p>
+      <div class="sec-main">
+        <h2 id="gmail-data">4a. Gmail data</h2>
+        <p>If you choose to connect Gmail:</p>
+        <ul>
+          <li>Access is <strong>read-only</strong> and is granted only after you explicitly authorize Scuffed OS through Google&rsquo;s OAuth consent flow (the <code>gmail.readonly</code> scope). You can review and revoke this access at any time from your Google Account&rsquo;s security settings.</li>
+          <li>Scuffed OS reads your inbox messages to display them and to triage them. For each message, the sender, subject, preview snippet, and a bounded plain-text body excerpt (~2&nbsp;KB) are sent to <strong>Anthropic</strong> to classify the message (needs-reply vs. FYI) and generate a short summary. Only the derived category and summary &mdash; never the message body &mdash; are stored.</li>
+          <li><strong>Message bodies are not stored.</strong> The inbox list and AI summaries live in the database; the full body of a message is fetched live from the Gmail API only when you open that message, and is never written to disk.</li>
+          <li>Gmail data is never sold, never shared with third parties for their own purposes, and never used for advertising.</li>
+          <li>You can disconnect Gmail within Scuffed OS at any time. On disconnect, stored email metadata and your Google OAuth tokens are deleted, and Scuffed OS revokes its Google access token. As with all deletions, this is honored within 30 days.</li>
+        </ul>
+        <p>Scuffed OS is an independent application and is not affiliated with, endorsed by, or sponsored by Google.</p>
+      </div>
+    </section>
+
     <!-- 05 / data storage and security -->
     <section class="sec" aria-labelledby="data-storage-and-security">
       <p class="sec-label"><span>05 &mdash; data storage and security</span><span>small surface, on purpose</span></p>
@@ -162,7 +184,7 @@
       <p class="sec-label"><span>06 &mdash; data retention and deletion</span><span>retained until you delete it</span></p>
       <div class="sec-main">
         <h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
-        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
+        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
       </div>
     </section>
 
@@ -171,7 +193,7 @@
       <p class="sec-label"><span>07 &mdash; your rights and choices</span><span>access &middot; correction &middot; export &middot; deletion</span></p>
       <div class="sec-main">
         <h2 id="your-rights-and-choices">7. Your rights and choices</h2>
-        <p>You can access, correct, export, or delete your data at any time &mdash; in-app, via the assistant, or by direct database access. You can decline to connect WHOOP (the rest of the app works without it), disable voice dictation by simply not using the microphone, and disconnect any integration at any time.</p>
+        <p>You can access, correct, export, or delete your data at any time &mdash; in-app, via the assistant, or by direct database access. You can decline to connect WHOOP or Gmail (the rest of the app works without either), disable voice dictation by simply not using the microphone, and disconnect any integration at any time.</p>
       </div>
     </section>
 
