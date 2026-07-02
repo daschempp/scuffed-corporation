@@ -59,7 +59,7 @@
         <h2 id="information-we-collect">1. Information we collect</h2>
         <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
         <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
-        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages read-only via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (the <code>gmail.readonly</code> scope); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. See <a href="#whoop-data">Section 4</a> and <a href="#gmail-data">Section 4a</a> for how WHOOP and Gmail data are handled.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. See <a href="#whoop-data">Section 4</a> and <a href="#gmail-data">Section 4a</a> for how WHOOP and Gmail data are handled.</p>
         <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
       </div>
     </section>
@@ -114,8 +114,8 @@
               </tr>
               <tr>
                 <th scope="row"><strong>Google</strong> (Gmail)</th>
-                <td>Email source, read-only (only if you connect it)</td>
-                <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage &mdash; see <a href="#gmail-data">Section 4a</a></td>
+                <td>Email source &mdash; read and user-initiated actions (only if you connect it)</td>
+                <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage or, when you ask for an AI draft, to generate one &mdash; see <a href="#gmail-data">Section 4a</a>. Actions you take (send, reply, forward, trash, star, read/unread, labels) are carried out via the Gmail API using your own account; sent mail is delivered through Gmail and appears in your Sent folder</td>
               </tr>
               <tr>
                 <th scope="row"><strong>USDA FoodData Central</strong></th>
@@ -149,14 +149,17 @@
 
     <!-- 04b / gmail data -->
     <section class="sec" aria-labelledby="gmail-data">
-      <p class="sec-label"><span>04 &mdash; gmail data</span><span>read-only &middot; bodies not stored</span></p>
+      <p class="sec-label"><span>04 &mdash; gmail data</span><span>read &middot; user-initiated actions &middot; bodies not stored</span></p>
       <div class="sec-main">
         <h2 id="gmail-data">4a. Gmail data</h2>
         <p>If you choose to connect Gmail:</p>
         <ul>
-          <li>Access is <strong>read-only</strong> and is granted only after you explicitly authorize Scuffed OS through Google&rsquo;s OAuth consent flow (the <code>gmail.readonly</code> scope). You can review and revoke this access at any time from your Google Account&rsquo;s security settings.</li>
+          <li>Access is granted only after you explicitly authorize Scuffed OS through Google&rsquo;s OAuth consent flow, and covers <strong>read plus the modify/send scopes</strong> (<code>gmail.readonly</code>, <code>gmail.modify</code>, <code>gmail.send</code>). You can review and revoke this access at any time from your Google Account&rsquo;s security settings.</li>
           <li>Scuffed OS reads your inbox messages to display them and to triage them. For each message, the sender, subject, preview snippet, and a bounded plain-text body excerpt (~2&nbsp;KB) are sent to <strong>Anthropic</strong> to classify the message (needs-reply vs. FYI) and generate a short summary. Only the derived category and summary &mdash; never the message body &mdash; are stored.</li>
           <li><strong>Message bodies are not stored.</strong> The inbox list and AI summaries live in the database; the full body of a message is fetched live from the Gmail API only when you open that message, and is never written to disk.</li>
+          <li>Beyond reading, Scuffed OS <strong>acts on your mailbox only on your explicit action.</strong> You can send a new message, reply, or forward; move a message to Trash; star or unstar it; mark it read or unread; and apply or remove labels. Every one of these actions happens only when you click the corresponding control &mdash; nothing is automated.</li>
+          <li><strong>AI-drafted replies are generated only when you ask for one</strong>, using the instructions and any notes you type into the compose box at that moment. A draft is never generated automatically (not on opening a message, not on sync). Draft text is <strong>never stored server-side</strong> &mdash; it exists only in your compose box until you send it or discard it.</li>
+          <li><strong>Outbound mail is sent through Gmail itself.</strong> When you send, reply, or forward, Scuffed OS submits the message to the Gmail API using your own authorized account; Gmail delivers it, and it appears in your Gmail Sent folder exactly as if you had sent it from Gmail directly.</li>
           <li>Gmail data is never sold, never shared with third parties for their own purposes, and never used for advertising.</li>
           <li>You can disconnect Gmail within Scuffed OS at any time. On disconnect, stored email metadata and your Google OAuth tokens are deleted, and Scuffed OS revokes its Google access token. As with all deletions, this is honored within 30 days.</li>
         </ul>
