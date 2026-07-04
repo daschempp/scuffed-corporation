@@ -43,12 +43,12 @@
 
     <!-- 00 / policy intro -->
     <section class="sec" aria-labelledby="policy-title">
-      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective june 10, 2026</span></p>
+      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective july 4, 2026</span></p>
       <div class="sec-main">
         <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
-        <p><strong>Effective date:</strong> June 10, 2026</p>
+        <p><strong>Effective date:</strong> July 4, 2026</p>
         <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
-        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP and Gmail.</p>
+        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, and Moodle.</p>
       </div>
     </section>
 
@@ -59,7 +59,7 @@
         <h2 id="information-we-collect">1. Information we collect</h2>
         <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
         <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
-        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. See <a href="#whoop-data">Section 4</a> and <a href="#gmail-data">Section 4a</a> for how WHOOP and Gmail data are handled.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. If you connect a Moodle (school learning-management) account, Scuffed OS reads your course information via the Moodle web-services API after you paste in an access token you obtain from your school&rsquo;s Moodle site; access is read-only, and it stores course names, assignment due dates, assignment and grade metadata, and short announcement and notification summaries &mdash; never assignment files or the full text of course content. See <a href="#whoop-data">Section 4</a>, <a href="#gmail-data">Section 4a</a>, and <a href="#moodle-data">Section 4b</a> for how WHOOP, Gmail, and Moodle data are handled.</p>
         <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
       </div>
     </section>
@@ -118,6 +118,11 @@
                 <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage or, when you ask for an AI draft, to generate one &mdash; see <a href="#gmail-data">Section 4a</a>. Actions you take (send, reply, forward, trash, star, read/unread, labels) are carried out via the Gmail API using your own account; sent mail is delivered through Gmail and appears in your Sent folder</td>
               </tr>
               <tr>
+                <th scope="row"><strong>Moodle</strong> (school LMS, e.g. NC&nbsp;State WolfWare)</th>
+                <td>School source, read-only (only if you connect it)</td>
+                <td>A <code>wstoken</code> you provide; Scuffed OS reads your courses, deadlines, grades, and announcements via the Moodle web-services API to display them. Course data may be included in assistant context sent to Anthropic only when you ask the assistant about school &mdash; see <a href="#moodle-data">Section 4b</a></td>
+              </tr>
+              <tr>
                 <th scope="row"><strong>USDA FoodData Central</strong></th>
                 <td>Food nutrition lookup</td>
                 <td>Only the food search text you enter (e.g., &ldquo;chicken wrap&rdquo;)</td>
@@ -167,6 +172,24 @@
       </div>
     </section>
 
+    <!-- 04c / moodle data -->
+    <section class="sec" aria-labelledby="moodle-data">
+      <p class="sec-label"><span>04 &mdash; moodle data</span><span>read-only &middot; bodies &amp; files not stored</span></p>
+      <div class="sec-main">
+        <h2 id="moodle-data">4b. Moodle data</h2>
+        <p>If you choose to connect Moodle:</p>
+        <ul>
+          <li>Access is <strong>read-only</strong> and is granted only after you explicitly provide an access token (a <code>wstoken</code>) that you obtain from your school&rsquo;s Moodle site (for NC&nbsp;State WolfWare, from the Security-keys page after signing in). Scuffed OS never sees your school username or password; only the token you paste is stored, server-side, and it is never exposed to the client.</li>
+          <li>Scuffed OS reads your course data to display it in the School section. It <strong>stores</strong> your course names, assignment due dates, assignment and grade metadata (title, status, points), and short announcement and notification summaries.</li>
+          <li>Scuffed OS does <strong>not</strong> store the contents of course files or the full body text of assignments or course pages. Those are <strong>fetched live</strong> from Moodle only when you open them, and are never written to disk.</li>
+          <li>Assignment deadlines from Moodle are <strong>projected into your Calendar and Tasks locally</strong> so they appear alongside your own events and to-dos. These projected entries are read-only markers derived from Moodle data &mdash; they are not copied into your calendar or task tables and cannot be edited or deleted through Scuffed OS; changing them happens in Moodle.</li>
+          <li>Moodle data is <strong>never sent to Anthropic except when you ask the assistant about your school</strong> (for example, &ldquo;what&rsquo;s due this week?&rdquo;); it is never sent to any other provider, never sold, never shared with third parties for their own purposes, and never used for advertising.</li>
+          <li>You can disconnect Moodle within Scuffed OS at any time. On disconnect, all stored Moodle data and your access token are deleted. As with all deletions, this is honored within 30 days.</li>
+        </ul>
+        <p>Scuffed OS is an independent application and is not affiliated with, endorsed by, or sponsored by Moodle, Moodle Pty Ltd, or North Carolina State University.</p>
+      </div>
+    </section>
+
     <!-- 05 / data storage and security -->
     <section class="sec" aria-labelledby="data-storage-and-security">
       <p class="sec-label"><span>05 &mdash; data storage and security</span><span>small surface, on purpose</span></p>
@@ -187,7 +210,7 @@
       <p class="sec-label"><span>06 &mdash; data retention and deletion</span><span>retained until you delete it</span></p>
       <div class="sec-main">
         <h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
-        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
+        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens; disconnecting Moodle likewise deletes all stored Moodle data (courses, deadlines, assignments, grades, announcements, notifications) and your Moodle access token. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
       </div>
     </section>
 
