@@ -76,7 +76,8 @@
           <li><span class="mod-name">Nutrition</span><span class="mod-desc">USDA food-database lookup</span><span class="tag tag-live">live</span></li>
           <li><span class="mod-name">Memory</span><span class="mod-desc">persistent second brain (Mem0 + pgvector)</span><span class="tag tag-live">live</span></li>
           <li><span class="mod-name">Voice</span><span class="mod-desc">capture, transcribe, act</span><span class="tag tag-live">live</span></li>
-          <li><span class="mod-name">WHOOP sync</span><span class="mod-desc">recovery &middot; sleep &middot; strain</span><span class="tag tag-dev">in dev</span></li>
+          <li><span class="mod-name">WHOOP sync</span><span class="mod-desc">recovery &middot; sleep &middot; strain</span><span class="tag tag-live">live</span></li>
+          <li><span class="mod-name">Moodle sync</span><span class="mod-desc">courses &middot; assignments &middot; due dates</span><span class="tag tag-live">live</span></li>
           <li><span class="mod-name">Finance</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
           <li><span class="mod-name">Email triage</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
           <li><span class="mod-name">Personal CRM</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
@@ -84,13 +85,13 @@
         </ul>
         <p class="legend">&ldquo;Planned&rdquo; means planned &mdash; not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
 
-        <h3>In development &amp; planned</h3>
-        <p>WHOOP fitness sync is the current build: recovery, sleep, and strain landing in the same brain as the tasks, the calendar, and the habits &mdash; so &ldquo;how did I sleep?&rdquo; gets an answer with context instead of a chart in yet another app. After that: finance, email triage, and a personal CRM, in roughly that order.</p>
+        <h3>Recently shipped &amp; planned</h3>
+        <p>WHOOP fitness sync and Moodle course sync both just landed &mdash; recovery, sleep, and strain, plus course names, assignments, and due dates &mdash; in the same brain as the tasks, the calendar, and the habits. So &ldquo;how did I sleep?&rdquo; and &ldquo;what&rsquo;s due this week?&rdquo; both get answers with context instead of a chart or a course portal in yet another app. Next: finance, email triage, and a personal CRM, in roughly that order.</p>
         <p>The roadmap is trustworthy for one reason: the person building it uses it every day.</p>
 
         <pre class="term" role="region" tabindex="0" aria-label="Scuffed OS status readout"><span class="term-prompt">~ &#10095;</span> scuffedos status
 
-  modules      7 live &middot; 1 in dev &middot; 3 planned
+  modules      9 live &middot; 3 planned
   stack        fastapi &middot; postgres + pgvector
                react &middot; claude &middot; mem0
   deployment   self-hosted &middot; single-tenant
@@ -98,7 +99,7 @@
   telemetry    none
   data owner   you
 
-<span class="term-dev">&#10227;</span> whoop sync in dev: recovery/sleep/strain</pre>
+<span class="term-ok">&#10003;</span> whoop + moodle sync live: recovery/sleep/strain, coursework/due-dates</pre>
 
         <dl class="meta">
           <div><dt>Stack</dt><dd>FastAPI &middot; PostgreSQL + pgvector &middot; React &middot; Claude &middot; Mem0</dd></div>
