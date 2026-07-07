@@ -43,12 +43,12 @@
 
     <!-- 00 / policy intro -->
     <section class="sec" aria-labelledby="policy-title">
-      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective july 4, 2026</span></p>
+      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective july 6, 2026</span></p>
       <div class="sec-main">
         <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
-        <p><strong>Effective date:</strong> July 4, 2026</p>
+        <p><strong>Effective date:</strong> July 6, 2026</p>
         <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
-        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, and Moodle.</p>
+        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, Moodle, and Plaid.</p>
       </div>
     </section>
 
@@ -59,7 +59,7 @@
         <h2 id="information-we-collect">1. Information we collect</h2>
         <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
         <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
-        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. If you connect a Moodle (school learning-management) account, Scuffed OS reads your course information via the Moodle web-services API after you paste in an access token you obtain from your school&rsquo;s Moodle site; access is read-only, and it stores course names, assignment due dates, assignment and grade metadata, and short announcement and notification summaries &mdash; never assignment files or the full text of course content. See <a href="#whoop-data">Section 4</a>, <a href="#gmail-data">Section 4a</a>, and <a href="#moodle-data">Section 4b</a> for how WHOOP, Gmail, and Moodle data are handled.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. If you connect a Moodle (school learning-management) account, Scuffed OS reads your course information via the Moodle web-services API after you paste in an access token you obtain from your school&rsquo;s Moodle site; access is read-only, and it stores course names, assignment due dates, assignment and grade metadata, and short announcement and notification summaries &mdash; never assignment files or the full text of course content. If you connect a bank or Coinbase account, Scuffed OS retrieves your financial data read-only through <strong>Plaid</strong> after you authorize each institution through Plaid&rsquo;s own hosted link flow; it stores account names/masks/types, balances, transaction metadata, and investment holdings (including crypto) &mdash; plus recurring subscription and bill streams; liabilities (loan and credit-card statement balances, minimum payments, next-payment due dates, and APRs); and investment transaction history &mdash; never your bank/Coinbase credentials. See <a href="#whoop-data">Section 4</a>, <a href="#gmail-data">Section 4a</a>, <a href="#moodle-data">Section 4b</a>, and <a href="#plaid-data">Section 4c</a> for how WHOOP, Gmail, Moodle, and Plaid data are handled.</p>
         <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
       </div>
     </section>
@@ -121,6 +121,11 @@
                 <th scope="row"><strong>Moodle</strong> (school LMS, e.g. NC&nbsp;State WolfWare)</th>
                 <td>School source, read-only (only if you connect it)</td>
                 <td>A <code>wstoken</code> you provide; Scuffed OS reads your courses, deadlines, grades, and announcements via the Moodle web-services API to display them. Course data may be included in assistant context sent to Anthropic only when you ask the assistant about school &mdash; see <a href="#moodle-data">Section 4b</a></td>
+              </tr>
+              <tr>
+                <th scope="row"><strong>Plaid</strong></th>
+                <td>Bank and Coinbase data source, read-only (only if you connect an institution)</td>
+                <td>OAuth-style authorization through Plaid&rsquo;s hosted link flow; Scuffed OS receives access to the financial account data you authorize (balances, transactions, investment holdings, recurring subscription/bill streams, liabilities such as loan/credit-card terms, and investment transaction history) via the Plaid API &mdash; Plaid never receives data from Scuffed OS beyond the link setup. Financial figures may be included in assistant context sent to Anthropic only when you ask the assistant about your money &mdash; see <a href="#plaid-data">Section 4c</a></td>
               </tr>
               <tr>
                 <th scope="row"><strong>USDA FoodData Central</strong></th>
@@ -190,6 +195,23 @@
       </div>
     </section>
 
+    <!-- 04d / plaid data -->
+    <section class="sec" aria-labelledby="plaid-data">
+      <p class="sec-label"><span>04 &mdash; plaid data</span><span>read-only &middot; no credentials &middot; no money movement</span></p>
+      <div class="sec-main">
+        <h2 id="plaid-data">4c. Plaid data (banks &amp; Coinbase)</h2>
+        <p>Scuffed OS can link your financial institutions through <strong>Plaid</strong> so the Finance screen shows real balances, transactions, net worth, and investment holdings (including Coinbase crypto). This is <strong>read-only</strong>: the app <strong>never moves money, initiates a transfer, or writes anything back to your bank or Coinbase.</strong></p>
+        <ul>
+          <li><strong>How it connects.</strong> You link an institution through Plaid&rsquo;s own hosted flow. <strong>Plaid handles your bank/Coinbase login &mdash; Scuffed OS never sees your credentials.</strong> Plaid returns an access token that lets us read your data; that token is stored <strong>server-side only</strong> and never sent to the browser.</li>
+          <li><strong>What is stored:</strong> institution and account names/masks/types, balances, transaction metadata (date, amount, merchant, Plaid category), and investment holdings + securities (including crypto). Also stored: <strong>recurring subscription and bill streams</strong> (merchant, cadence, amount); <strong>liabilities</strong> &mdash; loan and credit-card statement balances, minimum payments, next-payment due dates, and APRs; and <strong>investment transaction history</strong> (buys, sells, and other investment activity). Budgets you set are <strong>local</strong> and never leave the app; net worth is computed locally.</li>
+          <li><strong>What is not stored:</strong> your bank/Coinbase credentials (Plaid holds those), and full statements/documents.</li>
+          <li><strong>Anthropic.</strong> No financial data is sent to Anthropic <strong>except</strong> when you ask the assistant about your money &mdash; then the relevant figures transit to generate the reply and are not stored beyond it. The assistant can edit <strong>local budget limits</strong> on your instruction; it can <strong>never</strong> move money.</li>
+          <li><strong>Disconnect.</strong> Disconnecting an institution removes it at Plaid and deletes all of its data from Scuffed OS within 30 days.</li>
+        </ul>
+        <p>Scuffed OS is not affiliated with Plaid, Coinbase, or your bank.</p>
+      </div>
+    </section>
+
     <!-- 05 / data storage and security -->
     <section class="sec" aria-labelledby="data-storage-and-security">
       <p class="sec-label"><span>05 &mdash; data storage and security</span><span>small surface, on purpose</span></p>
@@ -210,7 +232,7 @@
       <p class="sec-label"><span>06 &mdash; data retention and deletion</span><span>retained until you delete it</span></p>
       <div class="sec-main">
         <h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
-        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens; disconnecting Moodle likewise deletes all stored Moodle data (courses, deadlines, assignments, grades, announcements, notifications) and your Moodle access token. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
+        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens; disconnecting Moodle likewise deletes all stored Moodle data (courses, deadlines, assignments, grades, announcements, notifications) and your Moodle access token. Connected-institution data is deleted within 30 days of disconnecting a bank or Coinbase account linked through Plaid. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
       </div>
     </section>
 
