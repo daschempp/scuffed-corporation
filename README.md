@@ -31,8 +31,11 @@ paths (`/about/`, not `/about.html`). All internal links are root-relative.
 - **No build step.** The files are served exactly as committed. There is nothing
   to install, compile, bundle, or minify.
 - **No external requests.** System fonts only, inline SVG only, no CDNs, no
-  analytics, no trackers, no cookies, no JavaScript. The colophon on the site
-  says this; keep it true.
+  analytics, no trackers, no cookies, and no JavaScript on content pages. The
+  single `/auth/whoop/callback` bounce page runs a few lines of inline script
+  to hand the OAuth result to the desktop app (no trackers/cookies/external
+  requests). The public colophon claim ("no trackers, no cookies") stays
+  literally true.
 - To preview locally: `python3 -m http.server 8000` from the repo root, then
   open `http://localhost:8000/`. (Any static file server works; opening files
   via `file://` breaks the root-relative `/styles.css` links.)
@@ -69,9 +72,11 @@ The site root **is** the repo root. Build command: **none**. Output directory:
 - [ ] **Update the WHOOP developer app's privacy-policy URL to
       `https://scuffedcorporation.com/privacy/`** — it currently points at a
       GitHub gist. The registered OAuth redirect is
-      `https://scuffedcorporation.com/auth/whoop/callback`; leave that as-is
-      (the site does not need to serve that path — it is handled by the
-      Scuffed OS backend / OAuth flow, not these static pages).
+      `https://scuffedcorporation.com/auth/whoop/callback`; the site now
+      serves that path as a static bounce page (`auth/whoop/callback.html`)
+      that forwards the OAuth result into the desktop app via the
+      `scuffedos://` scheme. Confirm it loads and that the no-slash URL is
+      served without a 301.
 - [ ] Hit a garbage URL and confirm the custom `404.html` renders with styles.
 - [ ] Check light and dark mode (OS-level toggle) and a narrow viewport (~380px).
 - [ ] Open devtools → Network and confirm the only requests are this site's own
@@ -81,7 +86,13 @@ The site root **is** the repo root. Build command: **none**. Output directory:
 
 - Keep every claim on the site literally true. Statuses in the module grid are
   `live` / `in dev` / `planned` — never promote one early.
-- New pages copy the head boilerplate, `.frame` skeleton, nav (with
+- New content pages copy the head boilerplate, `.frame` skeleton, nav (with
   `aria-current="page"` on the active link), and shared footer from an existing
   page. The class vocabulary lives in `styles.css`; don't add page-local styles.
-- No JavaScript. If a feature seems to need JS, the feature is wrong for this site.
+  (The `/auth/whoop/callback` bounce page is a transient redirect interstitial,
+  not a content page — it reuses the head boilerplate, `.frame`, and shared
+  styles but intentionally omits the nav and footer.)
+- No JavaScript on content pages. The sole exception is the
+  `/auth/whoop/callback` OAuth bounce page, which must forward the code into
+  the desktop app via the `scuffedos://` scheme. Any other page that seems to
+  need JS is wrong for this site.

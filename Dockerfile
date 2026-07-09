@@ -8,3 +8,4 @@ COPY index.html 404.html styles.css favicon.svg robots.txt /srv/
 COPY about/ /srv/about/
 COPY projects/ /srv/projects/
 COPY privacy/ /srv/privacy/
+COPY auth/ /srv/auth/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Returning to Scuffed OS…</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="frame">
+  <main id="main">
+    <section class="sec" aria-labelledby="bounce-title">
+      <p class="sec-label"><span>whoop sign-in</span><span>returning to the app</span></p>
+      <div class="sec-main">
+        <h1 class="page-title" id="bounce-title">Finishing WHOOP sign-in…</h1>
+        <p>You should be returned to Scuffed OS automatically. If nothing happens,
+           <a id="return" href="#">open Scuffed OS</a>.</p>
+        <p class="kit-muted">This is the one utility page on the site that runs a few lines of
+           script — it hands WHOOP's sign-in result back to the desktop app. No trackers,
+           no cookies, no external requests.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+  // Forward WHOOP's OAuth query (code + state, or error) into the desktop app
+  // via its custom scheme. WHOOP requires a public https redirect, so this page
+  // is the bridge back to the local app's deep-link handler.
+  (function () {
+    function bounceTarget(search) {
+      var q = (search || '').replace(/^\?/, '');
+      return 'scuffedos://oauth/callback?provider=whoop' + (q ? '&' + q : '');
+    }
+    var target = bounceTarget(window.location.search);
+    var link = document.getElementById('return');
+    if (link) link.setAttribute('href', target);
+    window.location.href = target;
+  })();
+</script>
+</body>
+</html>
