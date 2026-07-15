@@ -43,12 +43,12 @@
 
     <!-- 00 / policy intro -->
     <section class="sec" aria-labelledby="policy-title">
-      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective july 6, 2026</span></p>
+      <p class="sec-label"><span>00 &mdash; privacy policy</span><span>effective july 13, 2026</span></p>
       <div class="sec-main">
         <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
-        <p><strong>Effective date:</strong> July 6, 2026</p>
+        <p><strong>Effective date:</strong> July 13, 2026</p>
         <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
-        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, Moodle, and Plaid.</p>
+        <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, Moodle, Plaid, and macOS Contacts.</p>
       </div>
     </section>
 
@@ -59,8 +59,8 @@
         <h2 id="information-we-collect">1. Information we collect</h2>
         <p><strong>Information you enter directly.</strong> Tasks and reminders, calendar events, habit definitions and completions, nutrition logs (meals and water), notes and &ldquo;second-brain&rdquo; memories, file attachments, and your messages to the assistant (typed or dictated).</p>
         <p><strong>Derived information.</strong> After each assistant conversation, the app may extract short factual &ldquo;memories&rdquo; (for example, a stated preference or goal) and store them, along with vector embeddings of that text, so the assistant can recall relevant context later. Conversation history with the assistant is also stored so conversations can resume.</p>
-        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. If you connect a Moodle (school learning-management) account, Scuffed OS reads your course information via the Moodle web-services API after you paste in an access token you obtain from your school&rsquo;s Moodle site; access is read-only, and it stores course names, assignment due dates, assignment and grade metadata, and short announcement and notification summaries &mdash; never assignment files or the full text of course content. If you connect a bank or Coinbase account, Scuffed OS retrieves your financial data read-only through <strong>Plaid</strong> after you authorize each institution through Plaid&rsquo;s own hosted link flow; it stores account names/masks/types, balances, transaction metadata, and investment holdings (including crypto) &mdash; plus recurring subscription and bill streams; liabilities (loan and credit-card statement balances, minimum payments, next-payment due dates, and APRs); and investment transaction history &mdash; never your bank/Coinbase credentials. See <a href="#whoop-data">Section 4</a>, <a href="#gmail-data">Section 4a</a>, <a href="#moodle-data">Section 4b</a>, and <a href="#plaid-data">Section 4c</a> for how WHOOP, Gmail, Moodle, and Plaid data are handled.</p>
-        <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. We do not collect data about anyone other than the user of the app.</p>
+        <p><strong>Connected service data (with your consent).</strong> If you connect a WHOOP account, Scuffed OS retrieves your WHOOP data via the official WHOOP API after you authorize access through WHOOP&rsquo;s OAuth flow. Depending on the scopes you grant, this may include basic profile information, recovery scores, sleep data, strain and workout data, and related physiological measurements such as heart rate. If you connect a Gmail account, Scuffed OS reads your inbox messages via the Gmail API after you authorize access through Google&rsquo;s OAuth flow (read plus the modify/send scopes); it stores email metadata (sender, subject, snippet, and an AI-derived category and summary) but never the message bodies. Beyond reading, Scuffed OS acts on your mailbox only when you take an explicit action &mdash; sending, replying, forwarding, moving a message to Trash, starring, marking read/unread, or applying a label. If you connect a Moodle (school learning-management) account, Scuffed OS reads your course information via the Moodle web-services API after you paste in an access token you obtain from your school&rsquo;s Moodle site; access is read-only, and it stores course names, assignment due dates, assignment and grade metadata, and short announcement and notification summaries &mdash; never assignment files or the full text of course content. If you connect a bank or Coinbase account, Scuffed OS retrieves your financial data read-only through <strong>Plaid</strong> after you authorize each institution through Plaid&rsquo;s own hosted link flow; it stores account names/masks/types, balances, transaction metadata, and investment holdings (including crypto) &mdash; plus recurring subscription and bill streams; liabilities (loan and credit-card statement balances, minimum payments, next-payment due dates, and APRs); and investment transaction history &mdash; never your bank/Coinbase credentials. If you enable <strong>macOS Contacts</strong>, Scuffed OS reads your local Contacts (AddressBook) database read-only after you grant the app Full Disk Access and acknowledge the storage disclosure; it stores contact names, phone numbers, email addresses, organization and job title, and contact photos. It never writes back to your Contacts and sends Contacts to no AI provider. See <a href="#whoop-data">Section 4</a>, <a href="#gmail-data">Section 4a</a>, <a href="#moodle-data">Section 4b</a>, <a href="#plaid-data">Section 4c</a>, and <a href="#contacts-data">Section 4d</a> for how WHOOP, Gmail, Moodle, Plaid, and macOS Contacts data are handled.</p>
+        <p><strong>What we do not collect.</strong> Scuffed OS contains no advertising, no third-party analytics, and no tracking technologies. Scuffed OS does not collect data about anyone other than the user of the app <strong>except</strong> the contact details you choose to import from your own macOS Contacts (names, phone numbers, email addresses, organization/title, and photos) if you enable that connector &mdash; those describe people you already have in your own Contacts, and are used only to power your CRM and (in a future slice) messaging features. We do not sell, share, or otherwise use imported contact data for any purpose beyond your own use of the app.</p>
       </div>
     </section>
 
@@ -103,9 +103,9 @@
                 <td>The text of stored memories</td>
               </tr>
               <tr>
-                <th scope="row"><strong>Supabase</strong></th>
-                <td>Managed Postgres database hosting</td>
-                <td>Structured app data: tasks, events, habits, nutrition logs, conversations, memories and their embeddings, synced WHOOP data, and email metadata (sender, subject, snippet, and AI-derived category/summary &mdash; no message bodies)</td>
+                <th scope="row"><strong>PostgreSQL database</strong> (the configured server)</th>
+                <td>Structured app data storage</td>
+                <td>Tasks, events, habits, nutrition logs, conversations, memories and embeddings, synced WHOOP/finance/Moodle data, email metadata, and imported contact fields (names, phone numbers, emails, organization/title). The database may run locally or on a remote/self-hosted server; when remote, this data is transmitted to that server over TLS. Contact photos are NOT stored here &mdash; they stay on the backend host</td>
               </tr>
               <tr>
                 <th scope="row"><strong>WHOOP</strong></th>
@@ -137,7 +137,7 @@
         </div>
         <p>Anthropic and OpenAI process API data under their published API data-usage policies, which (as of the effective date) state that API inputs and outputs are not used to train their models.</p>
         <p>If you use voice dictation, audio is processed by your browser&rsquo;s built-in speech recognition, which may involve the browser vendor&rsquo;s speech service under that vendor&rsquo;s privacy policy. Only the resulting text transcript reaches Scuffed OS.</p>
-        <p>File attachments and the memory change-history database are stored locally on the machine running the app, not with any cloud provider. Notifications are generated locally on-device.</p>
+        <p>File attachments and the memory change-history database are stored locally on the machine running the app, not with any cloud provider. Notifications are generated locally on the backend host.</p>
       </div>
     </section>
 
@@ -212,15 +212,34 @@
       </div>
     </section>
 
+    <!-- 04e / macos contacts data -->
+    <section class="sec" aria-labelledby="contacts-data">
+      <p class="sec-label"><span>04 &mdash; macos contacts data</span><span>local read &middot; one-way &middot; consent + full disk access</span></p>
+      <div class="sec-main">
+        <h2 id="contacts-data">4d. macOS Contacts data</h2>
+        <p>Scuffed OS can import your local macOS Contacts so the People (CRM) screen shows your real contacts instead of sample data. This is <strong>read-only</strong> and <strong>one-way</strong> &mdash; Scuffed OS never writes back to Apple Contacts.</p>
+        <ul>
+          <li><strong>Consent, gated twice.</strong> Nothing is read until you explicitly enable this connector <strong>and</strong> grant Scuffed OS Full Disk Access in macOS System Settings &mdash; both are required. Enabling also requires acknowledging a storage disclosure that explains where the data goes before the first sync runs.</li>
+          <li><strong>What is read.</strong> Only fields you already have in Contacts: names, phone numbers, email addresses, organization and job title, and photos. Your Contacts database is read <strong>read-only</strong>; Scuffed OS never modifies it.</li>
+          <li><strong>Where it is stored.</strong> Contact names, phone numbers, email addresses, and organization/title are written to the configured PostgreSQL database (which may be remote &mdash; see <a href="#data-storage-and-security">Section 5</a>; transmitted over TLS when it is). Contact <strong>photos are not put in the database</strong> &mdash; they are stored as files on the backend host running the app.</li>
+          <li><strong>No AI, no third parties.</strong> Contacts data is sent to <strong>no AI provider</strong> and to <strong>no third-party Contacts API</strong>. It is used only to populate your own CRM.</li>
+          <li><strong>Revocation.</strong> You can revoke access by turning off Full Disk Access for Scuffed OS in System Settings, and/or by <strong>Disconnecting</strong> the connector in-app (stops future syncing but keeps your existing CRM data &mdash; relationship notes, pinned contacts &mdash; intact), or by using <strong>Forget imported data</strong> (deletes the imported contacts, their handle index, and their photos; a contact you had added relationship notes to is converted into a manually-owned entry rather than losing that history).</li>
+          <li><strong>Retention.</strong> Imported contact data persists until you Forget it or delete an individual manually-owned entry. If access is revoked (Full Disk Access turned off) without disconnecting or forgetting, Scuffed OS shows the connector as <strong>stale</strong> and preserves your existing rows rather than deleting them.</li>
+        </ul>
+        <p>Scuffed OS is an independent application and is not affiliated with, endorsed by, or sponsored by Apple.</p>
+      </div>
+    </section>
+
     <!-- 05 / data storage and security -->
     <section class="sec" aria-labelledby="data-storage-and-security">
       <p class="sec-label"><span>05 &mdash; data storage and security</span><span>small surface, on purpose</span></p>
       <div class="sec-main">
         <h2 id="data-storage-and-security">5. Data storage and security</h2>
         <ul>
-          <li>App data is stored in a Postgres database hosted by Supabase; attachments and the memory history file are stored on the operator&rsquo;s machine.</li>
-          <li>Data is encrypted in transit (TLS) between the app, the database, and all service providers.</li>
+          <li>App data is stored in the configured PostgreSQL database, which may run locally or on a remote/self-hosted server; attachments, the memory history file, and imported contact photos are stored on the backend host running the app.</li>
+          <li>Data is encrypted in transit (TLS) between the app, the database, and all service providers. A non-loopback (remote) database connection requires TLS (<code>sslmode=require</code> or stronger); connection strings and credentials are never written to logs.</li>
           <li>API credentials and OAuth tokens are stored server-side, never in the client. Static API keys come from server-side configuration; OAuth tokens obtained when you connect a service (such as WHOOP) are stored in the server-side database and are never exposed to the client.</li>
+          <li>In the packaged desktop app, API keys and OAuth tokens are stored on your Mac in a machine-bound, AES-256-GCM encrypted vault (<code>secrets.enc</code>) rather than in a database; the encryption key is derived from your machine&rsquo;s hardware identifier and wrapped in the macOS Keychain. These secrets never leave your machine.</li>
           <li>Access to the database and the machine running the app is limited to the operator.</li>
         </ul>
         <p>No system is perfectly secure, but as a single-user, self-hosted application, Scuffed OS&rsquo;s exposure surface is intentionally small.</p>
@@ -232,7 +251,7 @@
       <p class="sec-label"><span>06 &mdash; data retention and deletion</span><span>retained until you delete it</span></p>
       <div class="sec-main">
         <h2 id="data-retention-and-deletion">6. Data retention and deletion</h2>
-        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens; disconnecting Moodle likewise deletes all stored Moodle data (courses, deadlines, assignments, grades, announcements, notifications) and your Moodle access token. Connected-institution data is deleted within 30 days of disconnecting a bank or Coinbase account linked through Plaid. For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
+        <p>Data is retained until you delete it. Scuffed OS provides in-app deletion for every domain (tasks, events, habits, logs, memories, conversations), and the operator can delete any record &mdash; or all data &mdash; directly from the database at any time. Disconnecting WHOOP triggers deletion of synced WHOOP data and tokens as described in <a href="#whoop-data">Section 4</a>; disconnecting Gmail likewise deletes stored email metadata and Google OAuth tokens; disconnecting Moodle likewise deletes all stored Moodle data (courses, deadlines, assignments, grades, announcements, notifications) and your Moodle access token. Connected-institution data is deleted within 30 days of disconnecting a bank or Coinbase account linked through Plaid. <strong>Disconnecting macOS Contacts is not deletion</strong> &mdash; it stops future syncing but keeps your already-imported contacts and CRM data; use <strong>Forget imported data</strong> within Scuffed OS to delete the imported contacts, handle index, and photos (see <a href="#contacts-data">Section 4d</a>). For any deletion request, contact us at <a href="#contact">the address below</a> and it will be honored within 30 days.</p>
       </div>
     </section>
 
@@ -241,7 +260,7 @@
       <p class="sec-label"><span>07 &mdash; your rights and choices</span><span>access &middot; correction &middot; export &middot; deletion</span></p>
       <div class="sec-main">
         <h2 id="your-rights-and-choices">7. Your rights and choices</h2>
-        <p>You can access, correct, export, or delete your data at any time &mdash; in-app, via the assistant, or by direct database access. You can decline to connect WHOOP or Gmail (the rest of the app works without either), disable voice dictation by simply not using the microphone, and disconnect any integration at any time.</p>
+        <p>You can access, correct, export, or delete your data at any time &mdash; in-app, via the assistant, or by direct database access. You can decline to connect WHOOP, Gmail, or macOS Contacts (the rest of the app works without any of them), disable voice dictation by simply not using the microphone, and disconnect any integration at any time. For macOS Contacts specifically, use <strong>Forget imported data</strong> (<a href="#contacts-data">Section 4d</a>) to delete previously-imported contact data, not just Disconnect.</p>
       </div>
     </section>
 
