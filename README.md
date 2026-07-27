@@ -1,12 +1,12 @@
 # scuffedcorporation.com
 
-The public site for **Scuffed Corporation** — the umbrella brand for Dylan Schempp's
+The public site for **Scuffed Corporation**, the umbrella brand for Dylan Schempp's
 software projects. The name is a joke; the software isn't.
 
 This is a hand-written static site in a deliberate brutalist style: warm paper,
 one mono typeface, one accent color, full dark-mode support. Every claim on it is
-true — one engineer, one product in daily production
-(Scuffed OS, with WHOOP fitness sync honestly stamped "in dev").
+true: one engineer, one product in daily production
+(Scuffed OS: nine modules live, three honestly stamped "planned").
 
 ## Structure
 
@@ -19,7 +19,10 @@ true — one engineer, one product in daily production
 ├── privacy/index.html    privacy       → /privacy/
 ├── 404.html              not-found page (served by the host on missing routes)
 ├── favicon.svg           the scuffed-corner square mark (light + dark aware)
-├── robots.txt            allow all
+├── og.svg                editable source for the social preview card (not deployed)
+├── og.png                1200×630 social preview image, generated from og.svg
+├── robots.txt            allow all, points at the sitemap
+├── sitemap.xml           the four public pages
 └── README.md             this file
 ```
 
@@ -39,6 +42,21 @@ paths (`/about/`, not `/about.html`). All internal links are root-relative.
 - To preview locally: `python3 -m http.server 8000` from the repo root, then
   open `http://localhost:8000/`. (Any static file server works; opening files
   via `file://` breaks the root-relative `/styles.css` links.)
+
+### Rebuilding the social preview image
+
+`og.png` is the Open Graph card every page points at. It is generated from
+`og.svg` with macOS's built-in `sips`, so there is no dependency and no build step:
+
+```
+sips -s format png og.svg --out og.png
+```
+
+Edit `og.svg`, re-run that, and commit both. The acid highlight behind "joke"
+is a hand-placed rect sized to the rasterized glyph run, so if you change the
+display text or font size, re-measure and adjust the `#hl` rect's `x`/`width`.
+Keep `og.svg` free of `--` sequences inside comments; that is invalid XML and
+`sips` will refuse the file.
 
 ## Deploying
 
@@ -70,7 +88,7 @@ The site root **is** the repo root. Build command: **none**. Output directory:
 - [ ] `https://scuffedcorporation.com/` loads over HTTPS; `/about/`, `/projects/`,
       and `/privacy/` all resolve with the shared nav highlighting the right page.
 - [ ] **Update the WHOOP developer app's privacy-policy URL to
-      `https://scuffedcorporation.com/privacy/`** — it currently points at a
+      `https://scuffedcorporation.com/privacy/`.** It currently points at a
       GitHub gist. The registered OAuth redirect is
       `https://scuffedcorporation.com/auth/whoop/callback`; the site now
       serves that path as a static bounce page (`auth/whoop/callback.html`)
@@ -78,19 +96,22 @@ The site root **is** the repo root. Build command: **none**. Output directory:
       `scuffedos://` scheme. Confirm it loads and that the no-slash URL is
       served without a 301.
 - [ ] Hit a garbage URL and confirm the custom `404.html` renders with styles.
-- [ ] Check light and dark mode (OS-level toggle) and a narrow viewport (~380px).
+- [ ] Check light and dark mode (OS-level toggle) and a narrow viewport (320px:
+      no page may scroll horizontally at that width).
+- [ ] Paste `https://scuffedcorporation.com/` into Slack or iMessage and confirm
+      the `og.png` card renders (1200×630, acid highlight on "joke").
 - [ ] Open devtools → Network and confirm the only requests are this site's own
       files: zero third-party requests, ever.
 
 ## Editing rules
 
 - Keep every claim on the site literally true. Statuses in the module grid are
-  `live` / `in dev` / `planned` — never promote one early.
+  `live` / `in dev` / `planned`. Never promote one early.
 - New content pages copy the head boilerplate, `.frame` skeleton, nav (with
   `aria-current="page"` on the active link), and shared footer from an existing
   page. The class vocabulary lives in `styles.css`; don't add page-local styles.
   (The `/auth/whoop/callback` bounce page is a transient redirect interstitial,
-  not a content page — it reuses the head boilerplate, `.frame`, and shared
+  not a content page: it reuses the head boilerplate, `.frame`, and shared
   styles but intentionally omits the nav and footer.)
 - No JavaScript on content pages. The sole exception is the
   `/auth/whoop/callback` OAuth bounce page, which must forward the code into

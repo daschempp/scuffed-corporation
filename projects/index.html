@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects — Scuffed Corporation</title>
-<meta name="description" content="The Scuffed Corporation project index: Scuffed OS, a self-hosted personal operating system — one Claude-powered assistant with read-and-write tools over tasks, calendar, habits, nutrition, and memory. One real project, zero vaporware.">
+<meta name="description" content="The Scuffed Corporation project index: Scuffed OS, a self-hosted personal operating system with one Claude-powered assistant holding read-and-write tools over tasks, calendar, habits, nutrition, and memory. One real project, zero vaporware.">
 <link rel="canonical" href="https://scuffedcorporation.com/projects/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scuffed Corporation">
 <meta property="og:title" content="Projects — Scuffed Corporation">
 <meta property="og:description" content="Scuffed OS: a self-hosted personal operating system with one Claude-powered assistant over every life domain. One real project, honestly tracked, zero vaporware.">
 <meta property="og:url" content="https://scuffedcorporation.com/projects/">
+<meta property="og:image" content="https://scuffedcorporation.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scuffed Corporation: the name is a joke, the software isn't.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -34,12 +39,11 @@
           <li><a href="/projects/" aria-current="page">Projects</a></li>
           <li><a href="/privacy/">Privacy</a></li>
         </ul>
-        <a class="nav-cta" href="/projects/">Explore Scuffed&nbsp;OS</a>
       </div>
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
 
     <!-- 00 / project index -->
     <section class="sec" aria-labelledby="projects-title">
@@ -49,12 +53,12 @@
         <p class="deck">One flagship. Zero filler.</p>
         <ul class="chips" aria-label="Portfolio in short">
           <li>1 project</li>
-          <li>in daily production</li>
+          <li class="chip-accent">in daily production</li>
           <li>0 vaporware</li>
         </ul>
-        <p class="lede">This page is the honest version of a product portfolio: everything listed below exists, runs, and is used every day. At the moment that&rsquo;s a list of one. Scuffed OS gets the company&rsquo;s undivided attention &mdash; which is easy to guarantee, because the company is one person.</p>
+        <p class="lede">This page is the honest version of a product portfolio: everything listed below exists, runs, and is used every day. At the moment that&rsquo;s a list of one. Scuffed OS gets the company&rsquo;s undivided attention, which is easy to guarantee, because the company is one person.</p>
       </div>
-      <aside class="note" aria-label="Margin note">
+      <aside class="note">
         <strong>No &ldquo;trusted by&rdquo; wall here.</strong> One real project that runs every day beats a grid of borrowed logos arranged to look bigger than you are.
       </aside>
     </section>
@@ -65,7 +69,7 @@
       <div class="sec-main">
         <h2 id="scuffedos-title">Scuffed OS <span class="tag tag-dev">in active development</span></h2>
         <p class="sub">A self-hosted personal operating system: one Claude-powered assistant with read-and-write tools over every domain of a life.</p>
-        <p>Most assistant products can tell you things. Scuffed OS can <strong>do</strong> things. The assistant holds real read-and-write tools over tasks &mdash; with reminders, recurrence, and file attachments &mdash; plus calendar, habits, and nutrition with USDA food-database lookup, all backed by a persistent second-brain memory that carries context across conversations, weeks, and topics. Conversations stream and persist. You can talk to it by voice. Reminders fire as native notifications instead of dying quietly in a tab.</p>
+        <p>Most assistant products can tell you things. Scuffed OS can <strong>do</strong> things. The assistant holds real read-and-write tools over tasks (with reminders, recurrence, and file attachments), plus calendar, habits, and nutrition with USDA food-database lookup, all backed by a persistent second-brain memory that carries context across conversations, weeks, and topics. Conversations stream and persist. You can talk to it by voice. Reminders fire as native notifications instead of dying quietly in a tab.</p>
 
         <h3>Module status</h3>
         <ul class="modules" aria-label="Scuffed OS modules and status">
@@ -83,10 +87,10 @@
           <li><span class="mod-name">Personal CRM</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
           <li aria-hidden="true"><span class="mod-desc">// this cell intentionally left scuffed</span></li>
         </ul>
-        <p class="legend">&ldquo;Planned&rdquo; means planned &mdash; not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
+        <p class="legend">&ldquo;Planned&rdquo; means planned, not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
 
         <h3>Recently shipped &amp; planned</h3>
-        <p>WHOOP fitness sync and Moodle course sync both just landed &mdash; recovery, sleep, and strain, plus course names, assignments, and due dates &mdash; in the same brain as the tasks, the calendar, and the habits. So &ldquo;how did I sleep?&rdquo; and &ldquo;what&rsquo;s due this week?&rdquo; both get answers with context instead of a chart or a course portal in yet another app. Next: finance, email triage, and a personal CRM, in roughly that order.</p>
+        <p>WHOOP fitness sync and Moodle course sync both just landed (recovery, sleep, and strain, plus course names, assignments, and due dates) in the same brain as the tasks, the calendar, and the habits. So &ldquo;how did I sleep?&rdquo; and &ldquo;what&rsquo;s due this week?&rdquo; both get answers with context instead of a chart or a course portal in yet another app. Next: finance, email triage, and a personal CRM, in roughly that order.</p>
         <p>The roadmap is trustworthy for one reason: the person building it uses it every day.</p>
 
         <pre class="term" role="region" tabindex="0" aria-label="Scuffed OS status readout"><span class="term-prompt">~ &#10095;</span> scuffedos status
@@ -95,7 +99,7 @@
   stack        fastapi &middot; postgres + pgvector
                react &middot; claude &middot; mem0
   deployment   self-hosted &middot; single-tenant
-  signups      none &mdash; nothing to sign up for
+  signups      none (nothing to sign up for)
   telemetry    none
   data owner   you
 
@@ -103,15 +107,15 @@
 
         <dl class="meta">
           <div><dt>Stack</dt><dd>FastAPI &middot; PostgreSQL + pgvector &middot; React &middot; Claude &middot; Mem0</dd></div>
-          <div><dt>Deployment</dt><dd>Self-hosted, single-tenant, personal. There is no hosted version and nothing to sign up for &mdash; Scuffed OS runs on its owner&rsquo;s hardware, for its owner. That isn&rsquo;t a limitation we&rsquo;re apologizing for; it&rsquo;s the design.</dd></div>
+          <div><dt>Deployment</dt><dd>Self-hosted, single-tenant, personal. There is no hosted version and nothing to sign up for. Scuffed OS runs on its owner&rsquo;s hardware, for its owner. That isn&rsquo;t a limitation we&rsquo;re apologizing for; it&rsquo;s the design.</dd></div>
           <div><dt>Status</dt><dd>In active development and in daily production use by its first, most demanding, and currently only user.</dd></div>
           <div><dt>Data</dt><dd>Stays in the owner&rsquo;s Postgres. The full details are in the <a href="/privacy/">privacy policy</a>, which names every provider and exactly what each receives.</dd></div>
         </dl>
 
         <a class="btn" href="/privacy/">Scuffed OS Privacy Policy &rarr;</a>
       </div>
-      <aside class="note" aria-label="Margin note">
-        <strong>n.b.</strong> &mdash; if you&rsquo;re reading this from an API review queue: hello. The <strong>privacy policy</strong> is one click away. It names every provider and exactly what each receives; stored data lives in the user&rsquo;s own database.
+      <aside class="note">
+        <strong>n.b.</strong> If you&rsquo;re reading this from an API review queue: hello. The <strong>privacy policy</strong> is one click away. It names every provider and exactly what each receives; stored data lives in the user&rsquo;s own database.
       </aside>
     </section>
 
@@ -127,10 +131,10 @@
           <p><span class="term-cmt">// empty. ideas live as Scuffed OS tasks until they earn a repository.</span></p>
         </div>
 
-        <p>When the next project is real &mdash; running, used, able to survive daylight &mdash; it gets a section above this one, with the same status tags and the same rules. Until then the lab stays honestly empty: ideas are cheap, and Scuffed OS has first claim on the only engineer.</p>
+        <p>When the next project is real (running, used, able to survive daylight), it gets a section above this one, with the same status tags and the same rules. Until then the lab stays honestly empty: ideas are cheap, and Scuffed OS has first claim on the only engineer.</p>
       </div>
-      <aside class="note" aria-label="Margin note">
-        <strong>vaporware policy</strong> &mdash; if it doesn&rsquo;t run, it doesn&rsquo;t get a name, a card, or a &ldquo;coming soon&rdquo; tag. It gets built, or it stays a task.
+      <aside class="note">
+        <strong>vaporware policy</strong>: if it doesn&rsquo;t run, it doesn&rsquo;t get a name, a card, or a &ldquo;coming soon&rdquo; tag. It gets built, or it stays a task.
       </aside>
     </section>
 
@@ -145,7 +149,7 @@
     <div class="colophon">
       <h2>Colophon</h2>
       <p>One engineer, one stylesheet, one product that actually ships. No trackers, no cookies, nothing here is watching you read it.</p>
-      <p>Read the <a href="/privacy/">privacy policy</a> &mdash; this site collects nothing; the policy covers what the Scuffed OS app stores.</p>
+      <p>Read the <a href="/privacy/">privacy policy</a>. This site collects nothing; the policy covers what the Scuffed OS app stores.</p>
     </div>
     <p class="copyright">
       <span>&copy; 2026 Scuffed Corporation</span>

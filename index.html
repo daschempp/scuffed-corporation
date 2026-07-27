@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scuffed Corporation</title>
-<meta name="description" content="Scuffed Corporation is company operated by Dylan Schempp and houses his software projects: self-hosted personal software with real engineering underneath the self-deprecating name.">
+<meta name="description" content="Scuffed Corporation is a company operated by Dylan Schempp and houses his software projects: self-hosted personal software with real engineering underneath the self-deprecating name.">
 <link rel="canonical" href="https://scuffedcorporation.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Scuffed Corporation">
 <meta property="og:title" content="Scuffed Corporation">
-<meta property="og:description" content="The company operated by Dylan Schempp and houses his software projects: self-hosted tools and an honest roadmap.">
+<meta property="og:description" content="The company Dylan Schempp operates to house his software projects: self-hosted tools and an honest roadmap.">
 <meta property="og:url" content="https://scuffedcorporation.com/">
+<meta property="og:image" content="https://scuffedcorporation.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scuffed Corporation: the name is a joke, the software isn't.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -39,7 +44,7 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
 
     <!-- 00 / hero -->
     <section class="sec hero" aria-labelledby="hero-title">
@@ -47,20 +52,20 @@
       <div class="sec-main">
         <p class="eyebrow"><span class="ar" aria-hidden="true">&#8600;</span>Self-hosted software, one engineer</p>
         <h1 id="hero-title">Scuffed Corporation</h1>
-        <p class="deck">The name is a <u>joke</u>. The software isn&rsquo;t.</p>
-        <p class="lede">The home for software built by <strong>Dylan Schempp</strong> &mdash; self-hosted tools and an honest roadmap, built to production standards because the first and most demanding user is the person who wrote it.</p>
+        <p class="deck">The name is a <mark class="hl">joke</mark>. The software isn&rsquo;t.</p>
+        <p class="lede">The home for software built by <strong>Dylan Schempp</strong>: self-hosted tools and an honest roadmap, built to production standards because the first and most demanding user is the person who wrote it.</p>
         <div class="cta-row">
           <a class="btn" href="/projects/">Explore Scuffed OS &rarr;</a>
           <a class="btn btn-ghost" href="/about/">Read about</a>
         </div>
         <ul class="chips" aria-label="In short">
           <li>one engineer</li>
-          <li>self-hosted</li>
+          <li class="chip-accent">self-hosted</li>
           <li>your data stays yours</li>
         </ul>
       </div>
-      <aside class="note" aria-label="Margin note">
-        <strong>scuff</strong> /sk&#652;f/, <em>v.</em> &mdash; to scrape or wear the surface of something. The surface. Not the structure.
+      <aside class="note">
+        <strong>scuff</strong> /sk&#652;f/, <em>v.</em> To scrape or wear the surface of something. The surface. Not the structure.
       </aside>
     </section>
 
@@ -79,21 +84,21 @@
       <p class="sec-label"><span>01 &mdash; what we do</span></p>
       <div class="sec-main">
         <h2 id="what-title">We built it, and we use it</h2>
-        <p>Everything here is self-hosted: it runs on hardware we own, stores data in a database we control, and never reports back to a growth team that doesn&rsquo;t exist. The scope is narrow on purpose &mdash; one thing, done all the way, beats ten things done up to the launch.</p>
-        <p>There&rsquo;s no roadmap written for investors and no feature waiting on a funding round. Everything ships to production standards, because the first and most demanding user is the person who wrote it &mdash; and he&rsquo;s right here.</p>
+        <p>Everything here is self-hosted: it runs on hardware we own, stores data in a database we control, and never reports back to a growth team that doesn&rsquo;t exist. The scope is narrow on purpose. One thing, done all the way, beats ten things done up to the launch.</p>
+        <p>There&rsquo;s no roadmap written for investors and no feature waiting on a funding round. Everything ships to production standards, because the first and most demanding user is the person who wrote it, and he&rsquo;s right here.</p>
         <table class="facts">
           <caption class="visually-hidden">Company facts</caption>
           <tbody>
             <tr><th scope="row">Founded by</th><td><strong>Dylan Schempp</strong> (also: the entire org chart)</td></tr>
-            <tr><th scope="row">Headcount</th><td><strong>1</strong> &mdash; engineering, design, ops, and legal share a chair</td></tr>
+            <tr><th scope="row">Headcount</th><td><strong>1</strong>: engineering, design, ops, and legal share a chair</td></tr>
             <tr><th scope="row">Meetings per week</th><td><strong>0</strong></td></tr>
             <tr><th scope="row">Stock photos of teams pointing at whiteboards</th><td><strong>0</strong></td></tr>
-            <tr><th scope="row">Stack philosophy</th><td><strong>Boring on purpose</strong> &mdash; FastAPI, Postgres, typed schemas, migrations, tests. The product is the exciting part.</td></tr>
-            <tr><th scope="row">Products in daily production</th><td><strong>1</strong> &mdash; <a href="/projects/">Scuffed OS</a></td></tr>
+            <tr><th scope="row">Stack philosophy</th><td><strong>Boring on purpose</strong>: FastAPI, Postgres, typed schemas, migrations, tests. The product is the exciting part.</td></tr>
+            <tr><th scope="row">Products in daily production</th><td><strong>1</strong>: <a href="/projects/">Scuffed OS</a></td></tr>
           </tbody>
         </table>
       </div>
-      <aside class="note" aria-label="Margin note">
+      <aside class="note">
         Every claim on this page is true, which is a strange flex for a corporate website. Here we are.
       </aside>
     </section>
@@ -104,11 +109,11 @@
       <div class="sec-main">
         <h2 id="os-title">Scuffed OS</h2>
         <p class="sub">A self-hosted personal operating system: one Claude-powered assistant with read-and-write tools over your entire life.</p>
-        <p>Tasks with reminders, recurrence, and file attachments. Calendar. Habits. Nutrition with USDA food-database lookup. A persistent second-brain memory that actually remembers &mdash; across conversations, weeks, and topics. Talk to it by text or voice; reminders fire as native notifications, not as guilt in an inbox.</p>
+        <p>Tasks with reminders, recurrence, and file attachments. Calendar. Habits. Nutrition with USDA food-database lookup. A persistent second-brain memory that actually remembers across conversations, weeks, and topics. Talk to it by text or voice; reminders fire as native notifications, not as guilt in an inbox.</p>
 
         <div class="term" role="group" aria-label="A sample exchange with the Scuffed OS assistant">
           <p><span class="term-prompt">you &rsaquo;</span> remind me to stretch on weekdays at 8am</p>
-          <p><span class="term-ok">&#10003;</span> Reminder set &mdash; &ldquo;Stretch&rdquo; &middot; weekdays &middot; 8:00</p>
+          <p><span class="term-ok">&#10003;</span> Reminder set: &ldquo;Stretch&rdquo; &middot; weekdays &middot; 8:00</p>
           <p><span class="term-prompt">you &rsaquo;</span> how did I sleep?</p>
           <p><span class="term-ok">&#10003;</span> Last night: 7h 04m asleep &middot; 71% recovery &middot; resting HR 52. Cleared for a hard day.</p>
         </div>
@@ -128,18 +133,18 @@
           <li><span class="mod-name">Personal CRM</span><span class="mod-desc">on the roadmap</span><span class="tag tag-plan">planned</span></li>
           <li aria-hidden="true"><span class="mod-desc">// this cell intentionally left scuffed</span></li>
         </ul>
-        <p class="legend">&ldquo;Planned&rdquo; means planned &mdash; not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
+        <p class="legend">&ldquo;Planned&rdquo; means planned, not &ldquo;coming soon&rdquo; since three redesigns ago.</p>
 
         <dl class="meta">
           <div><dt>Stack</dt><dd>FastAPI &middot; PostgreSQL + pgvector &middot; React &middot; Claude &middot; Mem0</dd></div>
-          <div><dt>Status</dt><dd>In active development. Personal, private deployment &mdash; there is nothing to sign up for, and that&rsquo;s the point. The roadmap is trustworthy for one reason: the person building it uses it every day.</dd></div>
-          <div><dt>Next up</dt><dd>Finance &mdash; accounts, spending, and budgets in the same brain as the tasks and the calendar.</dd></div>
+          <div><dt>Status</dt><dd>In active development. Personal, private deployment: there is nothing to sign up for, and that&rsquo;s the point. The roadmap is trustworthy for one reason: the person building it uses it every day.</dd></div>
+          <div><dt>Next up</dt><dd>Finance: accounts, spending, and budgets in the same brain as the tasks and the calendar.</dd></div>
         </dl>
 
         <a class="btn" href="/projects/">Full project notes &rarr;</a>
       </div>
-      <aside class="note" aria-label="Margin note">
-        <strong>n.b.</strong> &mdash; &ldquo;OS&rdquo; as in <em>operating system for a person</em>, not a kernel. We&rsquo;re scuffed, not reckless.
+      <aside class="note">
+        <strong>n.b.</strong> &ldquo;OS&rdquo; as in <em>operating system for a person</em>, not a kernel. We&rsquo;re scuffed, not reckless.
       </aside>
     </section>
 
@@ -154,7 +159,7 @@
     <div class="colophon">
       <h2>Colophon</h2>
       <p>One engineer, one stylesheet, one product that actually ships. No trackers, no cookies, nothing here is watching you read it.</p>
-      <p>Read the <a href="/privacy/">privacy policy</a> &mdash; this site collects nothing; the policy covers what the Scuffed OS app stores.</p>
+      <p>Read the <a href="/privacy/">privacy policy</a>. This site collects nothing; the policy covers what the Scuffed OS app stores.</p>
     </div>
     <p class="copyright">
       <span>&copy; 2026 Scuffed Corporation</span>
