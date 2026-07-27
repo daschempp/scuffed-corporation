@@ -4,7 +4,7 @@ FROM caddy:2-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 
 # Site assets live at the web root so the absolute paths (/styles.css, /about/) resolve.
-COPY index.html 404.html styles.css favicon.svg robots.txt /srv/
+COPY index.html 404.html styles.css favicon.svg robots.txt sitemap.xml og.png /srv/
 COPY about/ /srv/about/
 COPY projects/ /srv/projects/
 COPY privacy/ /srv/privacy/

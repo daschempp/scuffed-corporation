@@ -6,6 +6,14 @@ www.scuffedcorporation.com {
 scuffedcorporation.com {
 	root * /srv
 	encode gzip zstd
+
+	# Assets are unversioned (no content hash in the filename), so a long
+	# max-age would pin a stale stylesheet after a deploy. "no-cache" still
+	# lets the browser store the file — it just revalidates first, and
+	# file_server answers with a 304 off the ETag, so repeat visits cost
+	# almost nothing while a deploy is picked up immediately.
+	header Cache-Control "no-cache"
+
 	file_server
 
 	# Serve the handwritten 404 page for any not-found path.
