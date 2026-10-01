@@ -32,9 +32,17 @@
   // via its custom scheme. WHOOP requires a public https redirect, so this page
   // is the bridge back to the local app's deep-link handler.
   (function () {
+    // A side-by-side QA build registers its own scheme (scuffedos-<tag>) and
+    // prefixes its state with it, so the result returns to the build that
+    // started sign-in. Only that one shape is honoured; anything else goes to
+    // the release app's scuffedos://, so this page never redirects elsewhere.
+    function bounceScheme(q) {
+      var m = /(?:^|&)state=(scuffedos-[a-z0-9]{1,32})\./.exec(q);
+      return m ? m[1] : 'scuffedos';
+    }
     function bounceTarget(search) {
       var q = (search || '').replace(/^\?/, '');
-      return 'scuffedos://oauth/callback?provider=whoop' + (q ? '&' + q : '');
+      return bounceScheme(q) + '://oauth/callback?provider=whoop' + (q ? '&' + q : '');
     }
     var target = bounceTarget(window.location.search);
     var link = document.getElementById('return');
