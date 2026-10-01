@@ -87,9 +87,10 @@ The site root **is** the repo root. Build command: **none**. Output directory:
 
 - [ ] `https://scuffedcorporation.com/` loads over HTTPS; `/about/`, `/projects/`,
       and `/privacy/` all resolve with the shared nav highlighting the right page.
-- [ ] **Update the WHOOP developer app's privacy-policy URL to
-      `https://scuffedcorporation.com/privacy/`.** It currently points at a
-      GitHub gist. The registered OAuth redirect is
+- [x] **The WHOOP developer app's privacy-policy URL is
+      `https://scuffedcorporation.com/privacy/`.** Confirmed already registered
+      on 2026-10-01; no repoint was needed. The retired GitHub gist was deleted
+      after `/privacy/` was republished. The registered OAuth redirect is
       `https://scuffedcorporation.com/auth/whoop/callback`; the site now
       serves that path as a static bounce page (`auth/whoop/callback.html`)
       that forwards the OAuth result into the desktop app via the
