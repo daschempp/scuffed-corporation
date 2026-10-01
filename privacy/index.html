@@ -128,6 +128,11 @@
                 <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage or, when you ask for an AI draft, to generate one; see <a href="#gmail-data">Section 4a</a>. Actions you take (send, reply, forward, trash, star, read/unread, labels) are carried out via the Gmail API using your own account; sent mail is delivered through Gmail and appears in your Sent folder</td>
               </tr>
               <tr>
+                <th scope="row"><strong>scuffedcorporation.com</strong> (this website, hosted on GitHub&nbsp;Pages)</th>
+                <td>Return page for WHOOP and Google sign-in in the packaged app (only if you connect either one)</td>
+                <td>After you approve access, the provider sends your browser to a page on this site, which hands the result back to the app on your own device. The site therefore receives the one-time authorization <code>code</code> and <code>state</code> values as URL query parameters, plus ordinary connection metadata such as IP address and user agent. The page sets no cookies and loads nothing from third parties, and Scuffed Corporation does not log or store these values. The site&rsquo;s host, GitHub, logs visitor IP addresses and we cannot view or control its logs. The <code>code</code> cannot be exchanged for access without credentials the site does not hold (for Google, also a one-time verifier that never leaves your device). No access tokens, Scuffed OS content, or stored domain data are sent to this site</td>
+              </tr>
+              <tr>
                 <th scope="row"><strong>Moodle</strong> (school LMS, e.g. NC&nbsp;State WolfWare)</th>
                 <td>School source, read-only (only if you connect it)</td>
                 <td>A <code>wstoken</code> you provide; Scuffed OS reads your courses, deadlines, grades, and announcements via the Moodle web-services API to display them. Course data may be included in assistant context sent to Anthropic only when you ask the assistant about school; see <a href="#moodle-data">Section 4b</a></td>
