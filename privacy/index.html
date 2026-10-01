@@ -52,7 +52,7 @@
       <div class="sec-main">
         <h1 class="page-title" id="policy-title">Scuffed OS Privacy Policy</h1>
         <p><strong>Effective date:</strong> September 22, 2026</p>
-        <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
+        <p>Scuffed OS is a personal assistant application operated by Dylan Schempp (&ldquo;we,&rdquo; &ldquo;us&rdquo;). It combines tasks, calendar, habits, nutrition, notes, email, school coursework, finances, a personal CRM, and connected health data behind a single AI assistant. Scuffed OS is a self-hosted application: in the current deployment, the operator and the sole user are the same person, and there are no third-party user accounts.</p>
         <p>This policy describes what data Scuffed OS stores, how it is used, and which service providers process it. It applies to the Scuffed OS application and any data obtained through connected services such as WHOOP, Gmail, Moodle, Plaid, and macOS Contacts.</p>
       </div>
     </section>
@@ -129,7 +129,7 @@
                 <td>OAuth authorization; Scuffed OS reads your Gmail messages via the Gmail API. Message content is retrieved to display it and (subject + a bounded body excerpt) is sent to Anthropic for triage or, when you ask for an AI draft, to generate one; see <a href="#gmail-data">Section 4a</a>. Actions you take (send, reply, forward, trash, star, read/unread, labels) are carried out via the Gmail API using your own account; sent mail is delivered through Gmail and appears in your Sent folder. When you ask the assistant about your email, what you and the assistant then write about it runs through the memory pipeline like any other turn (see the OpenAI row)</td>
               </tr>
               <tr>
-                <th scope="row"><strong>scuffedcorporation.com</strong> (this website, hosted on GitHub&nbsp;Pages)</th>
+                <th scope="row"><strong>scuffedcorporation.com</strong> (Scuffed Corporation&rsquo;s public website, hosted on GitHub&nbsp;Pages)</th>
                 <td>Return page for WHOOP and Google sign-in in the packaged app (only if you connect either one)</td>
                 <td>After you approve access, the provider sends your browser to a page on this site, which hands the result back to the app on your own device. The site therefore receives the one-time authorization <code>code</code> and <code>state</code> values as URL query parameters, plus ordinary connection metadata such as IP address and user agent. The page sets no cookies and loads nothing from third parties, and Scuffed Corporation does not log or store these values. The site&rsquo;s host, GitHub, logs visitor IP addresses and we cannot view or control its logs. The <code>code</code> cannot be exchanged for access without credentials the site does not hold (for Google, also a one-time verifier that never leaves your device). No access tokens, Scuffed OS content, or stored domain data are sent to this site</td>
               </tr>
